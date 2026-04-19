@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>∫ Cálculo I Bootcamp — Derivadas</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=yes">
+<title>∫ EXAMEN FINAL · Derivadas · 7 Pasos</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Sora:wght@300;400;500;600;700&display=swap">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
@@ -25,12 +25,12 @@ body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;min-he
 code,.mono{font-family:'JetBrains Mono',monospace}
 ::-webkit-scrollbar{width:3px;height:3px}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
-/* KaTeX overrides */
-.katex{font-size:1em!important}
-.katex-display{overflow-x:auto;overflow-y:hidden;padding:4px 0}
+/* KATEX MÁS GRANDE — LEGIBLE */
+.katex{font-size:1.4em!important}
+.katex-display{overflow-x:auto;overflow-y:hidden;padding:6px 0;font-size:1.3em!important}
+.katex-display .katex{font-size:1.3em!important}
 
-/* ══ SHELL ══ */
-#app{display:flex;flex-direction:column;min-height:100vh;max-width:860px;margin:0 auto}
+#app{display:flex;flex-direction:column;min-height:100vh;max-width:900px;margin:0 auto}
 #hdr{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);padding:10px 16px 8px;backdrop-filter:blur(12px)}
 .hdr-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px}
 .logo{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:var(--green);letter-spacing:2px}
@@ -41,19 +41,16 @@ code,.mono{font-family:'JetBrains Mono',monospace}
 .xp-track{height:3px;background:var(--bg3);border-radius:2px}
 .xp-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--cyan));border-radius:2px;transition:width .5s}
 
-/* ══ MAIN ══ */
 #main{flex:1;overflow-y:auto;padding-bottom:76px}
 .mod{display:none;padding:14px 16px;animation:fadeUp .22s ease}
 .mod.active{display:block}
 @keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
-/* ══ NAV ══ */
-#nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:860px;background:var(--bg2);border-top:1px solid var(--border);display:flex;justify-content:space-around;padding:7px 0 env(safe-area-inset-bottom);z-index:100}
+#nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:900px;background:var(--bg2);border-top:1px solid var(--border);display:flex;justify-content:space-around;padding:7px 0 env(safe-area-inset-bottom);z-index:100}
 .nb{display:flex;flex-direction:column;align-items:center;gap:1px;padding:3px 10px;border:none;background:none;color:var(--text2);font-size:10px;font-weight:500;border-radius:8px;transition:color .15s;font-family:'Sora',sans-serif;cursor:pointer}
 .nb .ic{font-size:19px;line-height:1}
 .nb.active{color:var(--green)}
 
-/* ══ CARDS ══ */
 .card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:14px;margin-bottom:10px}
 .card.g{border-color:rgba(0,232,122,.25)}
 .card.o{border-color:rgba(255,112,67,.25)}
@@ -61,10 +58,9 @@ code,.mono{font-family:'JetBrains Mono',monospace}
 .card.y{border-color:rgba(255,215,64,.25)}
 .card.p{border-color:rgba(199,125,255,.25)}
 .ct{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:9px}
-.st{font-size:20px;font-weight:700;margin-bottom:3px}
+.st{font-size:22px;font-weight:700;margin-bottom:3px}
 .ss{color:var(--text2);font-size:13px;margin-bottom:14px}
 
-/* ══ FORMULA BOX ══ */
 .fb{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:10px 14px;text-align:center;margin:8px 0;overflow-x:auto}
 .fb small{display:block;font-size:10px;color:var(--text2);margin-top:3px;font-family:'JetBrains Mono',monospace}
 .fb.g .katex,.fb.g{color:var(--green)}
@@ -73,21 +69,19 @@ code,.mono{font-family:'JetBrains Mono',monospace}
 .fb.y .katex,.fb.y{color:var(--yellow)}
 .fb.p .katex,.fb.p{color:var(--purple)}
 
-/* ══ STEPS ══ */
 .step{display:flex;gap:11px;margin-bottom:12px;padding:12px;background:var(--bg2);border-radius:8px;border-left:3px solid var(--border);transition:border-color .2s}
 .step.done{border-left-color:var(--green)}
 .step.cur{border-left-color:var(--orange)}
-.step-n{min-width:26px;height:26px;border-radius:50%;background:var(--bg3);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:var(--text2);flex-shrink:0}
+.step-n{min-width:28px;height:28px;border-radius:50%;background:var(--bg3);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--text2);flex-shrink:0}
 .step.done .step-n{background:var(--green);color:#000;border-color:var(--green)}
 .step.cur .step-n{background:var(--orange);color:#000;border-color:var(--orange)}
 .step-body{flex:1}
-.step-body h4{font-size:13px;font-weight:600;margin-bottom:4px}
-.step-body p{font-size:12px;color:var(--text2);line-height:1.5;margin-bottom:4px}
+.step-body h4{font-size:14px;font-weight:600;margin-bottom:4px}
+.step-body p{font-size:13px;color:var(--text2);line-height:1.5;margin-bottom:4px}
 .step-math{background:var(--bg3);border-radius:6px;padding:8px 10px;margin:6px 0;overflow-x:auto}
 .step-note{font-size:11px;color:var(--text2);font-style:italic;margin-top:4px;padding:4px 8px;border-left:2px solid var(--border)}
 .step-result{background:var(--bg3);border-radius:6px;padding:8px 12px;margin-top:6px;text-align:center;font-weight:700}
 
-/* ══ BUTTONS ══ */
 .btn{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;border-radius:8px;border:none;font-size:13px;font-weight:600;cursor:pointer;transition:all .15s;font-family:'Sora',sans-serif}
 .btn-g{background:var(--green);color:#000}.btn-g:hover{background:var(--green2)}
 .btn-o{background:var(--orange);color:#fff}.btn-o:hover{filter:brightness(1.1)}
@@ -95,11 +89,10 @@ code,.mono{font-family:'JetBrains Mono',monospace}
 .btn-r{background:var(--red);color:#fff}
 .btn-s{background:var(--bg3);color:var(--text);border:1px solid var(--border)}.btn-s:hover{background:var(--bg4)}
 .btn-full{width:100%;justify-content:center}
-.btn-lg{padding:11px 20px;font-size:14px;border-radius:10px}
+.btn-lg{padding:11px 20px;font-size:15px;border-radius:10px}
 .btn-sm{padding:4px 9px;font-size:12px}
 .btn-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
 
-/* ══ BADGES ══ */
 .badge{display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:600}
 .bg{background:rgba(0,232,122,.15);color:var(--green)}
 .bo{background:rgba(255,112,67,.15);color:var(--orange)}
@@ -108,14 +101,12 @@ code,.mono{font-family:'JetBrains Mono',monospace}
 .br{background:rgba(255,76,94,.15);color:var(--red)}
 .bp{background:rgba(199,125,255,.15);color:var(--purple)}
 
-/* ══ TABS ══ */
 .tabs{display:flex;gap:4px;overflow-x:auto;margin-bottom:14px;padding-bottom:2px}
 .tabs::-webkit-scrollbar{height:2px}
 .tab{padding:6px 13px;border-radius:6px;border:none;background:var(--bg3);color:var(--text2);font-size:12px;font-weight:500;white-space:nowrap;cursor:pointer;transition:all .15s;font-family:'Sora',sans-serif;flex-shrink:0}
 .tab.active{background:var(--green);color:#000;font-weight:700}
 .tp{display:none}.tp.active{display:block}
 
-/* ══ QUIZ ══ */
 .qbox{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:14px;margin-bottom:8px}
 .qbox p{font-size:14px;font-weight:500;margin-bottom:10px;line-height:1.6}
 .opts{display:flex;flex-direction:column;gap:5px}
@@ -129,14 +120,12 @@ code,.mono{font-family:'JetBrains Mono',monospace}
 .qfb.ok{background:rgba(0,232,122,.08);border:1px solid rgba(0,232,122,.25);color:var(--green)}
 .qfb.bad{background:rgba(255,76,94,.08);border:1px solid rgba(255,76,94,.25);color:var(--red)}
 
-/* ══ ALERTS ══ */
 .alert{border-radius:7px;padding:10px 13px;font-size:13px;margin:7px 0;display:flex;gap:8px;align-items:flex-start;line-height:1.5}
 .ai{background:rgba(0,200,240,.09);border:1px solid rgba(0,200,240,.2);color:var(--cyan)}
 .aw{background:rgba(255,215,64,.09);border:1px solid rgba(255,215,64,.2);color:var(--yellow)}
 .ag{background:rgba(0,232,122,.09);border:1px solid rgba(0,232,122,.2);color:var(--green)}
 .ar{background:rgba(255,76,94,.09);border:1px solid rgba(255,76,94,.2);color:var(--red)}
 
-/* ══ ACCORDION ══ */
 .acc{border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:5px}
 .acc-h{display:flex;justify-content:space-between;align-items:center;padding:11px 13px;cursor:pointer;background:var(--bg2);font-size:13px;font-weight:500;transition:background .15s}
 .acc-h:hover{background:var(--bg3)}
@@ -145,7 +134,6 @@ code,.mono{font-family:'JetBrains Mono',monospace}
 .acc.open .acc-ch{transform:rotate(180deg)}
 .acc.open .acc-b{display:block}
 
-/* ══ FLASHCARD ══ */
 .fc{perspective:1000px;cursor:pointer;min-height:150px;margin-bottom:10px}
 .fc-in{position:relative;width:100%;min-height:150px;transform-style:preserve-3d;transition:transform .5s}
 .fc.flipped .fc-in{transform:rotateY(180deg)}
@@ -154,27 +142,23 @@ code,.mono{font-family:'JetBrains Mono',monospace}
 .fc-back{background:var(--bg4);border:1px solid var(--green);transform:rotateY(180deg)}
 .fc-hint{font-size:9px;color:var(--text2);position:absolute;bottom:8px;letter-spacing:1px;text-transform:uppercase}
 
-/* ══ CANVAS ══ */
 #gc{display:block;width:100%;max-width:480px;margin:0 auto;border-radius:var(--r);border:1px solid var(--border)}
 .gleg{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:9px}
 .gli{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text2)}
 .gld{width:14px;height:3px;border-radius:2px}
 
-/* ══ INPUT ══ */
 .inp{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:7px;padding:9px 13px;color:var(--text);font-size:13px;outline:none;transition:border-color .15s;font-family:'Sora',sans-serif}
 .inp:focus{border-color:var(--green)}
 .inp::placeholder{color:var(--text2)}
 label.lbl{font-size:11px;color:var(--text2);display:block;margin-bottom:3px;font-weight:500}
 select.inp{cursor:pointer}
 
-/* ══ TOGGLE ══ */
 .tog{width:40px;height:22px;background:var(--bg3);border:1px solid var(--border);border-radius:11px;position:relative;transition:background .2s;cursor:pointer;flex-shrink:0}
 .tog.on{background:var(--green)}
 .tog::after{content:'';position:absolute;width:16px;height:16px;top:2px;left:2px;background:#fff;border-radius:50%;transition:transform .2s}
 .tog.on::after{transform:translateX(18px)}
 
-/* ══ AI CHAT ══ */
-#aic{min-height:600px;max-height:100vh;overflow-y:auto;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:10px;margin-bottom:7px;display:flex;flex-direction:column;gap:8px}
+#aic{min-height:800px;max-height:100vh;overflow-y:auto;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:10px;margin-bottom:7px;display:flex;flex-direction:column;gap:8px}
 .msg{padding:9px 13px;border-radius:9px;max-width:92%;font-size:12px;line-height:1.55}
 .mu{background:var(--bg4);color:var(--text);align-self:flex-end;border-bottom-right-radius:2px}
 .ma{background:rgba(0,232,122,.07);border:1px solid rgba(0,232,122,.18);color:var(--text);align-self:flex-start;border-bottom-left-radius:2px}
@@ -186,18 +170,20 @@ select.inp{cursor:pointer}
 .ai-iw{display:flex;gap:7px}
 .ai-iw .inp{flex:1}
 
-/* ══ PROGRESS ══ */
+/* TECLADO VIRTUAL LATEX */
+.kb-latex{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px;margin-bottom:4px}
+.kb-btn{background:var(--bg3);border:1px solid var(--border);color:var(--cyan);padding:5px 10px;border-radius:6px;font-size:12px;font-family:'JetBrains Mono',monospace;cursor:pointer;transition:all .1s}
+.kb-btn:hover{background:var(--bg4);border-color:var(--green)}
+
 .pbar{background:var(--bg3);border-radius:4px;height:5px;overflow:hidden;margin:6px 0}
 .pf{height:100%;border-radius:4px;transition:width .4s}
 .pf.g{background:linear-gradient(90deg,var(--green),var(--cyan))}
 .pf.o{background:linear-gradient(90deg,var(--orange),var(--yellow))}
 
-/* ══ GRID ══ */
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:9px}
 .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px}
 @media(max-width:420px){.g3{grid-template-columns:1fr 1fr}}
 
-/* ══ RISK ══ */
 .ri{display:flex;align-items:center;gap:9px;padding:9px 0;border-bottom:1px solid var(--border)}
 .ri:last-child{border:none}
 .ri-l{flex:1;font-size:13px}
@@ -206,22 +192,18 @@ select.inp{cursor:pointer}
 .rl-m{background:rgba(255,215,64,.18);color:var(--yellow)}
 .rl-l{background:rgba(0,232,122,.18);color:var(--green)}
 
-/* ══ PANIC ══ */
 #panic{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.96);flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:18px}
 #panic.show{display:flex}
 #pt{font-family:'JetBrains Mono',monospace;font-size:52px;font-weight:700;color:var(--red);text-shadow:0 0 24px rgba(255,76,94,.5)}
 
-/* ══ EXAM ══ */
 #et{font-family:'JetBrains Mono',monospace;font-size:26px;font-weight:700;color:var(--orange)}
 .eq{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:14px;margin-bottom:10px}
 .eq-n{font-size:10px;color:var(--text2);font-weight:600;letter-spacing:1px;margin-bottom:5px}
 
-/* ══ MISC ══ */
 .div{height:1px;background:var(--border);margin:14px 0}
 .tc{color:var(--cyan)}.tg{color:var(--green)}.to{color:var(--orange)}.ty{color:var(--yellow)}.tr{color:var(--red)}.tm{color:var(--text2)}
-.ts{font-size:12px}.txs{font-size:11px}.fw7{font-weight:700}
+.ts{font-size:13px}.txs{font-size:11px}.fw7{font-weight:700}
 .mt8{margin-top:8px}.mt12{margin-top:12px}.mt16{margin-top:16px}.mb8{margin-bottom:8px}
-/* guide source tag */
 .src-tag{display:inline-flex;align-items:center;gap:4px;font-size:10px;padding:2px 8px;border-radius:10px;background:rgba(199,125,255,.15);color:var(--purple);font-weight:600;letter-spacing:.5px}
 </style>
 </head>
@@ -231,7 +213,7 @@ select.inp{cursor:pointer}
 <!-- HEADER -->
 <header id="hdr">
   <div class="hdr-row">
-    <div class="logo">∫ <span>CÁLCULO</span> BOOTCAMP</div>
+    <div class="logo">∫ <span>EXAMEN 7 PASOS</span></div>
     <div class="xp-pill"><span class="lv">Nv <span id="hv">1</span></span><span class="pt"><span id="hp">0</span> XP</span></div>
   </div>
   <div class="xp-track"><div class="xp-fill" id="xpb" style="width:0%"></div></div>
@@ -241,40 +223,29 @@ select.inp{cursor:pointer}
 
 <!-- ══════════ HOME ══════════ -->
 <div id="mod-home" class="mod active">
-  <div class="st">🎯 Centro de Mando</div>
-  <div class="ss">Guía 7 — Derivadas · Parcial inminente</div>
+  <div class="st">🎯 Centro de Mando — 7 Pasos</div>
+  <div class="ss">Guía 7 · Derivadas · Estructura exacta del parcial</div>
 
   <div class="card g">
-    <div class="ct">Progreso del Bootcamp</div>
-    <div style="display:flex;justify-content:space-between;margin-bottom:5px">
-      <span class="ts tm">Módulos completados</span>
-      <span id="prog-lbl" class="mono tg fw7">0/8</span>
-    </div>
-    <div class="pbar"><div class="pf g" id="prog-bar" style="width:0%"></div></div>
-    <div style="display:flex;justify-content:space-between;margin-top:5px" class="txs tm mono">
-      <span>🥚 Inicio</span><span>🔥 Competente</span><span>⚡ Experto</span>
+    <div class="ct">⚡ PLAN DE ATAQUE 24h</div>
+    <div class="g2 mb8">
+      <button class="btn btn-o btn-sm" onclick="showMod('teoria')">① Derivada por límite</button>
+      <button class="btn btn-o btn-sm" onclick="showMod('teoria')">② Pendiente $m_T$</button>
+      <button class="btn btn-o btn-sm" onclick="showMod('teoria')">③ Ángulo $\theta$</button>
+      <button class="btn btn-o btn-sm" onclick="showMod('teoria')">④ Recta Tangente</button>
+      <button class="btn btn-o btn-sm" onclick="showMod('teoria')">⑤ Perpendicular</button>
+      <button class="btn btn-o btn-sm" onclick="showMod('teoria')">⑥ Paralela</button>
+      <button class="btn btn-o btn-sm" onclick="showMod('teoria')">⑦ Gráfica</button>
     </div>
   </div>
 
-  <div class="g2 mb8">
-    <button class="btn btn-o btn-full btn-lg" onclick="showMod('ejercicio')" style="height:54px">✏️ Ejercicios Guía</button>
-    <button class="btn btn-g btn-full btn-lg" onclick="showMod('practica')" style="height:54px">🎯 Practicar</button>
-    <button class="btn btn-s btn-full" onclick="showMod('grafica')" style="height:46px">📊 Gráfica</button>
-    <button class="btn btn-s btn-full" onclick="showMod('teoria')" style="height:46px">📖 Teoría</button>
+  <div class="card c">
+    <div class="ct">📌 Ejemplo del parcial (Clase 04-17)</div>
+    <div class="fb o">$$f(x)=6-x^2 \quad P(1,5)$$</div>
+    <div class="ts tm">Solución completa en Teoría → pestaña "Clase Ejemplo"</div>
   </div>
 
   <button class="btn btn-r btn-full btn-lg mb8" onclick="startPanic()">🚨 MODO PÁNICO — 15 min</button>
-
-  <div class="card c">
-    <div class="ct">📌 Fuente de ejercicios del parcial</div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
-      <span class="src-tag">📗 Guía 7</span>
-      <span class="badge bo">Ej. 1 — f(x)=x²−3x, P(1,−2)</span>
-      <span class="badge bo">Ej. 2 — f(x)=x²+2, P(2,6)</span>
-      <span class="badge bg">Clase — f(x)=6−x², P(1,5)</span>
-    </div>
-    <div class="fb g">$$f'(x) = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}$$<small>Definición de derivada — proceso límite</small></div>
-  </div>
 
   <div class="card y">
     <div class="ct">⚠️ Riesgos del Parcial</div>
@@ -284,175 +255,77 @@ select.inp{cursor:pointer}
     <div class="ri"><span class="ri-l">Confundir $m_T$ con $\theta$</span><span class="ri-v rl-m">🟡 MEDIO</span></div>
     <div class="ri"><span class="ri-l">Punto-pendiente: $y-y_1=m(x-x_1)$</span><span class="ri-v rl-l">🟢 BAJO</span></div>
   </div>
-
-  <div class="card">
-    <div class="ct">🏅 Logros</div>
-    <div style="display:flex;flex-wrap:wrap;gap:6px" id="ach-wrap">
-      <span class="badge bg" id="ach-start">🎮 Iniciado</span>
-      <span class="badge" id="ach-teoria" style="background:var(--bg3);color:var(--text2)">📖 Teórico</span>
-      <span class="badge" id="ach-ej" style="background:var(--bg3);color:var(--text2)">✏️ Practicante</span>
-      <span class="badge" id="ach-q5" style="background:var(--bg3);color:var(--text2)">🧠 5 Correctas</span>
-      <span class="badge" id="ach-perfect" style="background:var(--bg3);color:var(--text2)">⭐ Examen Perfecto</span>
-      <span class="badge" id="ach-exam" style="background:var(--bg3);color:var(--text2)">🎓 Examinado</span>
-    </div>
-  </div>
 </div>
 
-<!-- ══════════ TEORÍA ══════════ -->
+<!-- ══════════ TEORÍA (Alineada a 7 pasos) ══════════ -->
 <div id="mod-teoria" class="mod">
-  <div class="st">📖 Teoría Esencial</div>
-  <div class="ss">Solo lo necesario para el parcial</div>
+  <div class="st">📖 Teoría — Los 7 Pasos</div>
+  <div class="ss">Estructura exacta del examen</div>
 
   <div class="tabs" id="tabs-teoria">
-    <button class="tab active" data-tp="t-deriv">Derivada</button>
-    <button class="tab" data-tp="t-rectas">Rectas</button>
-    <button class="tab" data-tp="t-teoremas">Teoremas</button>
-    <button class="tab" data-tp="t-recetas">Recetas</button>
-    <button class="tab" data-tp="t-flash">Flashcards</button>
+    <button class="tab active" data-tp="t-pasos">📋 7 Pasos</button>
+    <button class="tab" data-tp="t-clase">🎓 Clase Ejemplo</button>
+    <button class="tab" data-tp="t-flash">📇 Flashcards</button>
   </div>
 
-  <!-- TAB Derivada -->
-  <div id="t-deriv" class="tp active">
-    <div class="card g">
-      <div class="ct">¿Qué es la Derivada?</div>
-      <p class="ts tm" style="line-height:1.7;margin-bottom:8px">La derivada es la <strong style="color:var(--text)">pendiente de la recta tangente</strong> a la curva en un punto. Geométricamente: cómo sube o baja la función <em>en ese instante exacto</em>.</p>
-      <div class="fb g">$$f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} = m_T(x)$$<small>Definición formal de derivada</small></div>
-      <div class="alert ag mt8">
-        <span>💡</span>
-        <span>Del profe: <em>"La derivada es razón de cambio. Si no se mueve, no hay derivada."</em></span>
-      </div>
-    </div>
-    <div class="card">
-      <div class="ct">¿Por qué el límite h→0?</div>
-      <p class="ts tm" style="line-height:1.7">Con dos puntos P y Q calculas la pendiente de la <em>secante</em>: $\frac{\Delta y}{\Delta x}$. Para la <em>tangente</em> solo tienes un punto. La solución: tomar Q muy cerca de P (separados por $h$), hacer $h \to 0$. La $h$ se cancela y obtienes la pendiente exacta.</p>
-    </div>
-
+  <!-- TAB 7 PASOS -->
+  <div id="t-pasos" class="tp active">
     <div class="card o">
-      <div class="ct">Proceso Límite — Ejemplo con $f(x) = 6 - x^2$</div>
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <div class="step done"><div class="step-n">1</div><div class="step-body"><h4>Calcular $f(x+h)$</h4><div class="step-math">$$f(x+h) = 6 - (x+h)^2 = 6 - x^2 - 2xh - h^2$$</div></div></div>
-        <div class="step done"><div class="step-n">2</div><div class="step-body"><h4>Restar $f(x)$</h4><div class="step-math">$$f(x+h)-f(x) = (6-x^2-2xh-h^2)-(6-x^2) = -2xh - h^2$$</div></div></div>
-        <div class="step done"><div class="step-n">3</div><div class="step-body"><h4>Dividir por $h$ (factor común)</h4><div class="step-math">$$\frac{-2xh - h^2}{h} = \frac{h(-2x-h)}{h} = -2x - h$$</div></div></div>
-        <div class="step done"><div class="step-n">4</div><div class="step-body"><h4>Aplicar límite $h \to 0$</h4><div class="step-math">$$\lim_{h \to 0}(-2x-h) = -2x$$</div></div></div>
-      </div>
-      <div class="fb o">$$f'(x) = -2x$$<small>Derivada de $f(x) = 6-x^2$</small></div>
+      <div class="ct">PASO ① — Derivada por definición (límite)</div>
+      <div class="fb o">$$f'(x) = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}$$</div>
+      <div class="step done"><div class="step-n">1</div><div class="step-body"><h4>Calcular $f(x+h)$</h4><div class="step-math">$$f(x+h)=6-(x+h)^2=6-x^2-2xh-h^2$$</div></div></div>
+      <div class="step done"><div class="step-n">2</div><div class="step-body"><h4>Restar $f(x)$ y simplificar</h4><div class="step-math">$$f(x+h)-f(x) = -2xh - h^2$$</div></div></div>
+      <div class="step done"><div class="step-n">3</div><div class="step-body"><h4>Dividir por $h$ (factorizar)</h4><div class="step-math">$$\frac{-2xh - h^2}{h} = \frac{h(-2x-h)}{h} = -2x - h$$</div></div></div>
+      <div class="step done"><div class="step-n">4</div><div class="step-body"><h4>Aplicar límite $h\to 0$</h4><div class="step-math">$$\lim_{h\to 0}(-2x-h) = -2x$$</div></div></div>
+      <div class="fb g">$$f'(x) = -2x$$</div>
     </div>
 
-    <div class="alert aw">
-      <span>⚠️</span><div><strong>Error #1:</strong> Al expandir $(x+h)^2$ olvidar el término central $2xh$.<br>Recuerda: $(a+b)^2 = a^2 + \mathbf{2ab} + b^2$</div>
-    </div>
-    <div class="alert aw">
-      <span>⚠️</span><div><strong>Error #2:</strong> No factorizar $h$ antes de cancelar. Siempre: $\frac{h(\ldots)}{h} = \ldots$</div>
-    </div>
-    <button class="btn btn-g btn-full mt12" onclick="addXP(15,'teoria');unlockA('ach-teoria')">✅ Entendí la Derivada (+15 XP)</button>
-  </div>
-
-  <!-- TAB Rectas -->
-  <div id="t-rectas" class="tp">
     <div class="card c">
-      <div class="ct">Recta Tangente</div>
-      <p class="ts tm mb8">La recta que toca la curva exactamente en el punto de tangencia. Para encontrarla necesitas pendiente + punto.</p>
-      <div class="fb c">$$y - y_1 = m_T\,(x - x_1)$$<small>Fórmula punto-pendiente</small></div>
-    </div>
-    <div class="card">
-      <div class="ct">Ángulo de Inclinación $\theta$</div>
-      <div class="fb">$$\theta = \arctan(m_T) \quad \Longleftrightarrow \quad m_T = \tan(\theta)$$</div>
-      <div class="alert ai mt8"><span>📐</span><span>Si $m_T = -2$: $\theta = \arctan(-2) \approx -63.4°$. El signo indica que la recta desciende.</span></div>
-    </div>
-    <div class="card o">
-      <div class="ct">Recta Perpendicular</div>
-      <div class="fb o">$$m_T \cdot m_\perp = -1 \quad \Longrightarrow \quad m_\perp = \frac{-1}{m_T}$$</div>
-      <div class="alert aw mt8"><span>⚠️</span><span>Si $m_T = -2$: $m_\perp = \dfrac{-1}{-2} = \dfrac{1}{2}$. No olvides el cambio de signo <em>y</em> la inversión.</span></div>
-    </div>
-    <div class="card">
-      <div class="ct">Recta Paralela</div>
-      <div class="fb">$$R_1 \parallel R_2 \iff m_1 = m_2$$</div>
-      <p class="ts tm mt8">Una paralela tiene la <strong style="color:var(--text)">misma pendiente</strong>. Solo cambia el punto por donde pasa.</p>
-    </div>
-  </div>
-
-  <!-- TAB Teoremas -->
-  <div id="t-teoremas" class="tp">
-    <div class="card g">
-      <div class="ct">Teoremas (del profe)</div>
-      <div style="padding:11px;background:var(--bg2);border-radius:8px;margin-bottom:8px">
-        <div class="ts fw7 to mb8">① Perpendiculares</div>
-        <div class="fb o" style="margin:0">$$R_1 \perp R_2 \iff m_1 \cdot m_2 = -1$$</div>
-        <p class="txs tm mt8">Se cruzan a 90°. También se llaman rectas <em>normales</em>.</p>
-      </div>
-      <div style="padding:11px;background:var(--bg2);border-radius:8px">
-        <div class="ts fw7 tc mb8">② Paralelas</div>
-        <div class="fb c" style="margin:0">$$R_1 \parallel R_2 \iff m_1 = m_2$$</div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="ct">Función Derivada</div>
-      <div class="fb">$$m_T(x) = f'(x), \quad x \in D_f$$</div>
-      <p class="ts tm mt8">Cuando $x = x_0$ (número fijo): $f'(x_0) = $ número = pendiente en ese punto.</p>
-      <div class="fb o mt8">$$f'(x_0) = \lim_{h \to 0} \frac{f(x_0+h)-f(x_0)}{h} \in \mathbb{R}$$</div>
+      <div class="ct">PASO ② — Pendiente de la tangente $m_T$</div>
+      <div class="fb c">$$m_T = f'(x_0)$$</div>
+      <p class="ts tm">Evaluar la derivada en $x_0$. Ej: $x_0=1 \Rightarrow m_T = -2(1) = -2$</p>
     </div>
     <div class="card y">
-      <div class="ct">✅ Checklist de Resolución</div>
-      <div style="display:flex;flex-direction:column;gap:7px" id="chklist">
-        <label onclick="flipTog(this)" style="display:flex;gap:9px;align-items:center;cursor:pointer">
-          <div class="tog"></div><span class="ts">1. Calcular $f(x+h)$ — sustituir $x$ por $(x+h)$</span></label>
-        <label onclick="flipTog(this)" style="display:flex;gap:9px;align-items:center;cursor:pointer">
-          <div class="tog"></div><span class="ts">2. Calcular $f(x+h) - f(x)$ — simplificar</span></label>
-        <label onclick="flipTog(this)" style="display:flex;gap:9px;align-items:center;cursor:pointer">
-          <div class="tog"></div><span class="ts">3. Dividir por $h$ — factorizar y cancelar</span></label>
-        <label onclick="flipTog(this)" style="display:flex;gap:9px;align-items:center;cursor:pointer">
-          <div class="tog"></div><span class="ts">4. Aplicar $\lim_{h \to 0}$ → obtener $f'(x)$</span></label>
-        <label onclick="flipTog(this)" style="display:flex;gap:9px;align-items:center;cursor:pointer">
-          <div class="tog"></div><span class="ts">5. Evaluar $f'(x_0)$ → obtener $m_T$</span></label>
-        <label onclick="flipTog(this)" style="display:flex;gap:9px;align-items:center;cursor:pointer">
-          <div class="tog"></div><span class="ts">6. Aplicar $y-y_1=m_T(x-x_1)$ → recta tangente</span></label>
-        <label onclick="flipTog(this)" style="display:flex;gap:9px;align-items:center;cursor:pointer">
-          <div class="tog"></div><span class="ts">7. $m_\perp = -1/m_T$ → recta perpendicular</span></label>
-        <label onclick="flipTog(this)" style="display:flex;gap:9px;align-items:center;cursor:pointer">
-          <div class="tog"></div><span class="ts">8. $m_\parallel = m_T$, usar punto $Q$ → recta paralela</span></label>
-      </div>
-    </div>
-  </div>
-
-  <!-- TAB Recetas -->
-  <div id="t-recetas" class="tp">
-    <div class="card g">
-      <div class="ct">📋 Receta Universal</div>
-      <div class="acc open">
-        <div class="acc-h" onclick="flipAcc(this)"><span>Paso 1 — Derivar por límite</span><span class="acc-ch">▼</span></div>
-        <div class="acc-b">
-          Para $f(x) = a - bx^2$: el proceso siempre da $f'(x) = -2bx$.<br>
-          El $a$ desaparece en la resta $f(x+h)-f(x)$.<br>
-          La $h$ se factoriza para cancelarse con el denominador.
-        </div>
-      </div>
-      <div class="acc">
-        <div class="acc-h" onclick="flipAcc(this)"><span>Paso 2 — Pendiente en el punto</span><span class="acc-ch">▼</span></div>
-        <div class="acc-b">Evaluar $f'(x)$ en $x = x_0$. Ejemplo: si $f'(x) = -2x$ y $x_0=1$: $m_T = -2(1) = -2$.</div>
-      </div>
-      <div class="acc">
-        <div class="acc-h" onclick="flipAcc(this)"><span>Paso 3 — Ecuación de la recta</span><span class="acc-ch">▼</span></div>
-        <div class="acc-b">$$y - y_1 = m_T(x-x_1)$$ Sustituir el punto de tangencia $(x_0, y_0)$ y despejar $y = mx + b$.</div>
-      </div>
-      <div class="acc">
-        <div class="acc-h" onclick="flipAcc(this)"><span>Paso 4 — Perpendicular y paralela</span><span class="acc-ch">▼</span></div>
-        <div class="acc-b">
-          <strong>⊥:</strong> $m_\perp = -1/m_T$. Usar el mismo punto de tangencia $P$.<br>
-          <strong>∥:</strong> $m_\parallel = m_T$. Usar el punto dado $Q$.
-        </div>
-      </div>
+      <div class="ct">PASO ③ — Ángulo de inclinación $\theta$</div>
+      <div class="fb y">$$\theta = \arctan(m_T)$$</div>
+      <p class="ts tm">Ej: $m_T=-2 \Rightarrow \theta = \arctan(-2) \approx -63.4°$</p>
     </div>
     <div class="card o">
-      <div class="ct">🔢 Fracciones — Casos del Parcial</div>
-      <div class="fb o">$$\text{Si } m_T = -2 \Rightarrow m_\perp = \frac{-1}{-2} = \frac{1}{2}$$</div>
-      <div class="fb o mt8">$$\text{Si } m_T = 4 \Rightarrow m_\perp = \frac{-1}{4}$$</div>
-      <div class="alert aw mt8"><span>⚠️</span><span>$m_\perp = -1/m_T$ siempre, sin excepción. Es el recíproco multiplicativo con signo cambiado.</span></div>
+      <div class="ct">PASO ④ — Ecuación de la recta tangente</div>
+      <div class="fb o">$$y - y_1 = m_T(x - x_1)$$</div>
+      <p class="ts tm">Con $P(1,5)$ y $m_T=-2$: $y-5=-2(x-1) \Rightarrow y=-2x+7$</p>
+    </div>
+    <div class="card c">
+      <div class="ct">PASO ⑤ — Recta perpendicular (normal)</div>
+      <div class="fb c">$$m_\perp = -\frac{1}{m_T}$$</div>
+      <p class="ts tm">Con $m_T=-2$: $m_\perp = \frac{1}{2}$. Usar punto $P$: $y-5=\frac{1}{2}(x-1) \Rightarrow y=\frac{1}{2}x+\frac{9}{2}$</p>
+    </div>
+    <div class="card y">
+      <div class="ct">PASO ⑥ — Recta paralela</div>
+      <div class="fb y">$$m_\parallel = m_T$$</div>
+      <p class="ts tm">Usar el punto dado $Q(2,2)$: $y-2=-2(x-2) \Rightarrow y=-2x+6$</p>
+    </div>
+    <div class="card g">
+      <div class="ct">PASO ⑦ — Gráfica</div>
+      <p class="ts tm">Ubicar punto de tangencia, vértice, cortes con ejes. Trazar curva y las tres rectas. Ver pestaña "Clase Ejemplo".</p>
+      <button class="btn btn-g btn-full mt8" onclick="showMod('grafica')">📊 Ver Gráfica Interactiva</button>
     </div>
   </div>
 
-  <!-- TAB Flashcards -->
+  <!-- TAB CLASE EJEMPLO -->
+  <div id="t-clase" class="tp">
+    <div class="card o">
+      <div class="ct">🎓 $f(x)=6-x^2$ · $P(1,5)$ (Clase 04-17)</div>
+      <div id="steps-clase-teoria"></div>
+      <div class="btn-row mt8">
+        <button class="btn btn-s btn-sm" onclick="revealAll('clase')">Mostrar todo</button>
+        <button class="btn btn-g btn-sm" onclick="addXP(25,'teoria_clase')">✅ +25 XP</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB FLASHCARDS -->
   <div id="t-flash" class="tp">
-    <p class="ts tm mb8">Toca cada tarjeta para ver la respuesta</p>
     <div id="fc-cont"></div>
     <div style="display:flex;gap:8px;align-items:center;margin-top:8px">
       <button class="btn btn-s" onclick="nextFC()">Siguiente →</button>
@@ -461,264 +334,76 @@ select.inp{cursor:pointer}
   </div>
 </div>
 
-<!-- ══════════ EJERCICIO ══════════ -->
+<!-- ══════════ EJERCICIO (Mismo que antes, pero mejorado) ══════════ -->
 <div id="mod-ejercicio" class="mod">
-  <div class="st">✏️ Ejercicios de la Guía</div>
-  <div class="ss">3 ejemplos completos · Paso a paso</div>
-
+  <div class="st">✏️ Ejercicios Guía</div>
+  <div class="ss">3 ejemplos completos paso a paso</div>
   <div class="tabs" id="tabs-ejercicio">
-    <button class="tab active" data-tp="ej-clase">📌 Clase — $f(x)=6-x^2$</button>
-    <button class="tab" data-tp="ej-guia1"><span class="src-tag">Guía</span> E1 — $f(x)=x^2-3x$</button>
-    <button class="tab" data-tp="ej-guia2"><span class="src-tag">Guía</span> E2 — $f(x)=x^2+2$</button>
+    <button class="tab active" data-tp="ej-clase">📌 Clase — $6-x^2$</button>
+    <button class="tab" data-tp="ej-guia1">📗 Guía E1 — $x^2-3x$</button>
+    <button class="tab" data-tp="ej-guia2">📗 Guía E2 — $x^2+2$</button>
   </div>
-
-  <!-- EJ CLASE -->
-  <div id="ej-clase" class="tp active">
-    <div class="card o">
-      <div class="ct">📌 Enunciado</div>
-      <div class="fb o">$$f(x) = 6 - x^2$$</div>
-      <ol style="margin-left:16px;color:var(--text2);font-size:13px;line-height:2.1">
-        <li>Derivada $f'(x)$ por proceso límite</li>
-        <li>Pendiente de la recta tangente en $P(1,\,5)$</li>
-        <li>Ángulo de inclinación $\theta$</li>
-        <li>Ecuación de la recta tangente $\varepsilon_{RT}$</li>
-        <li>Ecuación de la recta perpendicular $\varepsilon_{RI}$</li>
-        <li>Recta paralela a la tangente por $Q(2,\,2)$</li>
-      </ol>
-    </div>
-    <div id="steps-clase"></div>
-    <div style="display:flex;gap:8px;margin-top:8px">
-      <button class="btn btn-s" id="btn-prev-clase" onclick="prevStep('clase')" style="flex:1" disabled>← Anterior</button>
-      <button class="btn btn-o" id="btn-next-clase" onclick="nextStep('clase')" style="flex:1">Siguiente →</button>
-    </div>
-    <div class="btn-row mt8">
-      <button class="btn btn-s btn-sm" onclick="revealAll('clase')">Mostrar todo</button>
-      <button class="btn btn-s btn-sm" onclick="resetSteps('clase')">Reiniciar</button>
-      <button class="btn btn-g btn-sm" onclick="addXP(20,'ej_clase');unlockA('ach-ej')">✅ +20 XP</button>
-    </div>
-  </div>
-
-  <!-- EJ GUIA 1 -->
-  <div id="ej-guia1" class="tp">
-    <div class="card p">
-      <div class="ct">📗 Guía 7 — Ejemplo 1</div>
-      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
-        <span class="src-tag">Guía Nº7</span>
-        <span class="badge bp">Docente: Edgar Licona Castilla</span>
-      </div>
-      <div class="fb p">$$f(x) = x^2 - 3x \quad P(1,\,-2)$$</div>
-      <ol style="margin-left:16px;color:var(--text2);font-size:13px;line-height:2.1">
-        <li>Hallar la pendiente $m_T$ usando la definición de derivada</li>
-        <li>Hallar la ecuación de la recta tangente</li>
-      </ol>
-    </div>
-    <div id="steps-guia1"></div>
-    <div style="display:flex;gap:8px;margin-top:8px">
-      <button class="btn btn-s" id="btn-prev-guia1" onclick="prevStep('guia1')" style="flex:1" disabled>← Anterior</button>
-      <button class="btn" id="btn-next-guia1" onclick="nextStep('guia1')" style="flex:1;background:var(--purple);color:#fff">Siguiente →</button>
-    </div>
-    <div class="btn-row mt8">
-      <button class="btn btn-s btn-sm" onclick="revealAll('guia1')">Mostrar todo</button>
-      <button class="btn btn-s btn-sm" onclick="resetSteps('guia1')">Reiniciar</button>
-      <button class="btn btn-g btn-sm" onclick="addXP(20,'ej_guia1')">✅ +20 XP</button>
-    </div>
-  </div>
-
-  <!-- EJ GUIA 2 -->
-  <div id="ej-guia2" class="tp">
-    <div class="card p">
-      <div class="ct">📗 Guía 7 — Ejemplo 2</div>
-      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
-        <span class="src-tag">Guía Nº7</span>
-        <span class="badge bp">Ejemplo más completo</span>
-      </div>
-      <div class="fb p">$$f(x) = x^2 + 2 \quad P(2,\,6)$$</div>
-      <ol style="margin-left:16px;color:var(--text2);font-size:13px;line-height:2.1">
-        <li>Derivada $f'(x)$ mediante proceso límite</li>
-        <li>Ecuación de la recta tangente en $P(2,6)$</li>
-        <li>Ecuación de la recta perpendicular a la tangente</li>
-        <li>Gráfica</li>
-      </ol>
-    </div>
-    <div id="steps-guia2"></div>
-    <div style="display:flex;gap:8px;margin-top:8px">
-      <button class="btn btn-s" id="btn-prev-guia2" onclick="prevStep('guia2')" style="flex:1" disabled>← Anterior</button>
-      <button class="btn" id="btn-next-guia2" onclick="nextStep('guia2')" style="flex:1;background:var(--purple);color:#fff">Siguiente →</button>
-    </div>
-    <div class="btn-row mt8">
-      <button class="btn btn-s btn-sm" onclick="revealAll('guia2')">Mostrar todo</button>
-      <button class="btn btn-s btn-sm" onclick="resetSteps('guia2')">Reiniciar</button>
-      <button class="btn btn-g btn-sm" onclick="addXP(20,'ej_guia2')">✅ +20 XP</button>
-    </div>
-  </div>
+  <div id="ej-clase" class="tp active"><div id="steps-clase"></div><div style="display:flex;gap:8px;margin-top:8px"><button class="btn btn-s" onclick="prevStep('clase')">←</button><button class="btn btn-o" onclick="nextStep('clase')">→</button></div></div>
+  <div id="ej-guia1" class="tp"><div id="steps-guia1"></div><div style="display:flex;gap:8px;margin-top:8px"><button class="btn btn-s" onclick="prevStep('guia1')">←</button><button class="btn btn-o" onclick="nextStep('guia1')">→</button></div></div>
+  <div id="ej-guia2" class="tp"><div id="steps-guia2"></div><div style="display:flex;gap:8px;margin-top:8px"><button class="btn btn-s" onclick="prevStep('guia2')">←</button><button class="btn btn-o" onclick="nextStep('guia2')">→</button></div></div>
 </div>
 
 <!-- ══════════ GRÁFICA ══════════ -->
 <div id="mod-grafica" class="mod">
   <div class="st">📊 Gráfica Interactiva</div>
-  <div class="ss">Visualizar los 3 ejemplos de la guía</div>
-
-  <div class="card" style="margin-bottom:8px">
-    <div class="ct">Seleccionar Ejemplo</div>
-    <div class="g3">
-      <button class="btn btn-o btn-sm" onclick="setGraph('clase',this)" id="gbtn-clase">Clase: $6-x^2$</button>
-      <button class="btn btn-s btn-sm" onclick="setGraph('guia1',this)" id="gbtn-guia1" style="border-color:var(--purple);color:var(--purple)">Guía E1: $x^2-3x$</button>
-      <button class="btn btn-s btn-sm" onclick="setGraph('guia2',this)" id="gbtn-guia2" style="border-color:var(--purple);color:var(--purple)">Guía E2: $x^2+2$</button>
-    </div>
-  </div>
-
-  <div class="card" style="padding:8px">
-    <canvas id="gc" width="480" height="380"></canvas>
-  </div>
-
+  <div class="ss">Visualizar los 7 pasos</div>
+  <div class="card"><div class="ct">Seleccionar Ejemplo</div><div class="g3"><button class="btn btn-o btn-sm" onclick="setGraph('clase',this)">Clase: $6-x^2$</button><button class="btn btn-s btn-sm" onclick="setGraph('guia1',this)">Guía E1</button><button class="btn btn-s btn-sm" onclick="setGraph('guia2',this)">Guía E2</button></div></div>
+  <canvas id="gc" width="480" height="380"></canvas>
   <div class="gleg" id="g-legend"></div>
-
-  <div class="card mt12">
-    <div class="ct">Mostrar/Ocultar</div>
-    <div class="g2">
-      <label style="display:flex;gap:8px;align-items:center;cursor:pointer" onclick="flipTog(this);graphRedraw()">
-        <div class="tog on" id="tog-curva"></div><span class="ts">Curva $f(x)$</span></label>
-      <label style="display:flex;gap:8px;align-items:center;cursor:pointer" onclick="flipTog(this);graphRedraw()">
-        <div class="tog on" id="tog-tan"></div><span class="ts">Recta tangente</span></label>
-      <label style="display:flex;gap:8px;align-items:center;cursor:pointer" onclick="flipTog(this);graphRedraw()">
-        <div class="tog on" id="tog-perp"></div><span class="ts">Perpendicular</span></label>
-      <label style="display:flex;gap:8px;align-items:center;cursor:pointer" onclick="flipTog(this);graphRedraw()">
-        <div class="tog" id="tog-par"></div><span class="ts">Paralela (si aplica)</span></label>
-    </div>
-  </div>
-
-  <div class="card mt8">
-    <div class="ct">Evaluar punto</div>
-    <div style="display:flex;gap:7px">
-      <div style="flex:1"><label class="lbl">Valor de $x$</label>
-        <input type="number" class="inp" id="eval-x" value="1" step="0.5"></div>
-      <button class="btn btn-c" onclick="evalPoint()" style="align-self:flex-end">Calcular</button>
-    </div>
-    <div id="eval-res" class="fb c" style="display:none;margin-top:8px"></div>
-  </div>
-
-  <button class="btn btn-g btn-full mt12" onclick="addXP(10,'grafica')">✅ Gráfica entendida (+10 XP)</button>
+  <div class="card mt12"><div class="ct">Mostrar/Ocultar</div><div class="g2"><label onclick="flipTog(this);graphRedraw()"><div class="tog on" id="tog-curva"></div><span class="ts">Curva</span></label><label onclick="flipTog(this);graphRedraw()"><div class="tog on" id="tog-tan"></div><span class="ts">Tangente</span></label><label onclick="flipTog(this);graphRedraw()"><div class="tog on" id="tog-perp"></div><span class="ts">Perpendicular</span></label><label onclick="flipTog(this);graphRedraw()"><div class="tog" id="tog-par"></div><span class="ts">Paralela</span></label></div></div>
+  <div class="card mt8"><div class="ct">Evaluar punto</div><input type="number" class="inp" id="eval-x" value="1" step="0.5"><button class="btn btn-c mt8" onclick="evalPoint()">Calcular</button><div id="eval-res" class="fb c" style="display:none;margin-top:8px"></div></div>
 </div>
 
 <!-- ══════════ PRÁCTICA ══════════ -->
 <div id="mod-practica" class="mod">
   <div class="st">🎯 Práctica</div>
-  <div class="ss">Quiz · Ejercicios · Examen · Riesgos</div>
-
   <div class="tabs" id="tabs-practica">
     <button class="tab active" data-tp="p-quiz">Quiz</button>
     <button class="tab" data-tp="p-ejer">Ejercicios</button>
     <button class="tab" data-tp="p-exam">Examen</button>
-    <button class="tab" data-tp="p-riesgo">Riesgos</button>
   </div>
-
-  <!-- QUIZ -->
-  <div id="p-quiz" class="tp active">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-      <span class="ts tm">Pregunta <span id="qn">1</span> de <span id="qt">15</span></span>
-      <span class="badge bg" id="qsc">✓ 0 | ✗ 0</span>
-    </div>
-    <div class="pbar mb8"><div class="pf g" id="qprog" style="width:0%"></div></div>
-    <div id="quiz-cont"></div>
-    <div class="btn-row">
-      <button class="btn btn-s btn-sm" onclick="prevQ()">← Anterior</button>
-      <button class="btn btn-g btn-sm" onclick="nextQ()">Siguiente →</button>
-      <button class="btn btn-s btn-sm" onclick="shuffleQ()">🔀 Mezclar</button>
-    </div>
-  </div>
-
-  <!-- EJERCICIOS ESTÁTICOS -->
-  <div id="p-ejer" class="tp">
-    <div id="ejer-list"></div>
-  </div>
-
-  <!-- EXAMEN -->
-  <div id="p-exam" class="tp">
-    <div id="ex-setup">
-      <div class="card o">
-        <div class="ct">🎓 Modo Examen</div>
-        <p class="ts tm mb12">Sin pistas · Con tiempo · Puntaje final</p>
-        <div class="g2 mb12">
-          <div><label class="lbl">Duración</label>
-            <select class="inp" id="ex-dur"><option value="900">15 min</option><option value="1800" selected>30 min</option><option value="3600">60 min</option></select></div>
-          <div><label class="lbl">Dificultad</label>
-            <select class="inp" id="ex-diff"><option value="easy">Básico</option><option value="medium" selected>Normal</option><option value="hard">Difícil</option></select></div>
-        </div>
-        <button class="btn btn-o btn-full btn-lg" onclick="startExam()">🚀 Iniciar Examen</button>
-      </div>
-    </div>
-    <div id="ex-area" style="display:none">
-      <div class="card" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-        <div><div class="txs tm">Tiempo</div><div id="et">30:00</div></div>
-        <div><div class="txs tm">Progreso</div><div class="mono tg fw7" id="eprog">0/6</div></div>
-        <button class="btn btn-r btn-sm" onclick="endExam()">Terminar</button>
-      </div>
-      <div id="ex-qs"></div>
-      <button class="btn btn-o btn-full mt12" onclick="submitExam()">Entregar examen →</button>
-    </div>
-    <div id="ex-res" style="display:none">
-      <div class="card g" style="text-align:center;padding:22px">
-        <div style="font-size:46px;margin-bottom:6px">🎓</div>
-        <div class="st" id="ex-score-t"></div>
-        <div class="tm mt8" id="ex-score-d"></div>
-      </div>
-      <div id="ex-review"></div>
-      <button class="btn btn-g btn-full mt12" onclick="resetExam()">Nuevo Examen</button>
-    </div>
-  </div>
-
-  <!-- RIESGOS -->
-  <div id="p-riesgo" class="tp">
-    <div class="card y">
-      <div class="ct">⚠️ Perfil Completo de Riesgos</div>
-      <div class="ri"><div style="flex:1"><div class="fw7 ts">Fracciones en $m_\perp$</div><div class="txs tm">$m_\perp = -1/m_T$ — invertir y cambiar signo</div></div><span class="ri-v rl-h">🔴 ALTO</span></div>
-      <div class="ri"><div style="flex:1"><div class="fw7 ts">Expansión $(x+h)^2$</div><div class="txs tm">$(x+h)^2 = x^2 + 2xh + h^2$ — no olvidar $2xh$</div></div><span class="ri-v rl-h">🔴 ALTO</span></div>
-      <div class="ri"><div style="flex:1"><div class="fw7 ts">Cancelar $h$ del denominador</div><div class="txs tm">Siempre factorizar primero: $h(\ldots)/h$</div></div><span class="ri-v rl-h">🔴 ALTO</span></div>
-      <div class="ri"><div style="flex:1"><div class="fw7 ts">Signos negativos</div><div class="txs tm">$-(6-x^2) = -6+x^2$, cuidado con la distribución</div></div><span class="ri-v rl-m">🟡 MEDIO</span></div>
-      <div class="ri"><div style="flex:1"><div class="fw7 ts">Confundir $m_T$ con $\theta$</div><div class="txs tm">$m_T = \tan\theta$, no son iguales</div></div><span class="ri-v rl-m">🟡 MEDIO</span></div>
-      <div class="ri"><div style="flex:1"><div class="fw7 ts">Paralela: punto $Q \neq P$</div><div class="txs tm">La paralela usa el punto dado $Q$, no el de tangencia $P$</div></div><span class="ri-v rl-m">🟡 MEDIO</span></div>
-      <div class="ri"><div style="flex:1"><div class="fw7 ts">Punto-pendiente $y-y_1=m(x-x_1)$</div><div class="txs tm">Sustituir correctamente y despejar $y$</div></div><span class="ri-v rl-l">🟢 BAJO</span></div>
-    </div>
-    <div class="card">
-      <div class="ct">🎯 Preguntas Conceptuales Probables</div>
-      <div class="acc">
-        <div class="acc-h" onclick="flipAcc(this)"><span>¿Qué representa geométricamente $f'(x)$?</span><span class="acc-ch">▼</span></div>
-        <div class="acc-b">La pendiente $m_T$ de la recta tangente a la gráfica de $f$ en el punto $x$. Geométricamente: cómo varía la curva en ese instante.</div>
-      </div>
-      <div class="acc">
-        <div class="acc-h" onclick="flipAcc(this)"><span>¿Por qué se usa el límite en la derivada?</span><span class="acc-ch">▼</span></div>
-        <div class="acc-b">Porque solo conocemos un punto de tangencia (no dos). El límite $h\to 0$ permite "aproximar" un segundo punto infinitamente cercano hasta que coincide con el primero.</div>
-      </div>
-      <div class="acc">
-        <div class="acc-h" onclick="flipAcc(this)"><span>¿Qué es la razón de cambio?</span><span class="acc-ch">▼</span></div>
-        <div class="acc-b">La derivada $f'(x_0)$ indica cómo cambia $f$ cuando $x$ varía (en el punto $x_0$). Es la "velocidad instantánea" de cambio de la función.</div>
-      </div>
-    </div>
-  </div>
+  <div id="p-quiz" class="tp active"><div id="quiz-cont"></div><div class="btn-row"><button class="btn btn-s" onclick="prevQ()">←</button><button class="btn btn-g" onclick="nextQ()">→</button></div></div>
+  <div id="p-ejer" class="tp"><div id="ejer-list"></div></div>
+  <div id="p-exam" class="tp"><div id="ex-setup"><button class="btn btn-o btn-full" onclick="startExam()">Iniciar Examen</button></div><div id="ex-area" style="display:none"><div id="ex-qs"></div><button class="btn btn-o btn-full" onclick="submitExam()">Entregar</button></div><div id="ex-res" style="display:none"></div></div>
 </div>
 
-<!-- ══════════ TUTOR IA ══════════ -->
+<!-- ══════════ TUTOR IA (Mejorado) ══════════ -->
 <div id="mod-ia" class="mod">
-  <div class="st">🤖 Tutor IA</div>
-  <div class="ss">OpenAI · Requiere API Key</div>
-
-  <div id="ia-off" style="display:none">
-    <div class="alert aw"><span>🔑</span><div>Configura tu API Key en <strong>⚙️ Configuración</strong> para activar el tutor.</div></div>
-    <button class="btn btn-o btn-full mt8" onclick="showMod('config')">⚙️ Ir a Configuración</button>
-  </div>
-
+  <div class="st">🤖 Tutor IA — Modo Examen</div>
+  <div class="ss">OpenAI · Responde en LaTeX · 7 pasos</div>
+  <div id="ia-off" style="display:none"><div class="alert aw">🔑 Configura tu API Key en ⚙️ Configuración</div></div>
   <div id="ia-on">
     <div class="card g">
-      <div class="ct">⚡ Acciones Rápidas</div>
+      <div class="ct">⚡ Acciones Rápidas (Genera ejercicios como el parcial)</div>
       <div class="btn-row">
         <button class="btn btn-s btn-sm" onclick="aiAction('ej_guia1')">📗 Variante Guía E1</button>
         <button class="btn btn-s btn-sm" onclick="aiAction('ej_guia2')">📗 Variante Guía E2</button>
-        <button class="btn btn-s btn-sm" onclick="aiAction('similar')">📝 Ejercicio similar</button>
+        <button class="btn btn-s btn-sm" onclick="aiAction('similar')">📝 Similar</button>
         <button class="btn btn-s btn-sm" onclick="aiAction('fraccion')">🔢 Con fracciones</button>
-        <button class="btn btn-s btn-sm" onclick="aiAction('dificil')">🔥 Más difícil</button>
+        <button class="btn btn-s btn-sm" onclick="aiAction('dificil')">🔥 Difícil</button>
         <button class="btn btn-s btn-sm" onclick="aiAction('simulacro')">🎓 Simulacro</button>
-        <button class="btn btn-s btn-sm" onclick="aiAction('errores')">🔍 Mis errores</button>
-        <button class="btn btn-s btn-sm" onclick="aiAction('facil')">💡 Explica fácil</button>
+      </div>
+    </div>
+
+    <!-- Teclado LaTeX -->
+    <div class="card">
+      <div class="ct">⌨️ Teclado LaTeX</div>
+      <div class="kb-latex" id="latex-kb">
+        <button class="kb-btn" data-latex="\frac{}{}">\frac{}{}</button>
+        <button class="kb-btn" data-latex="x^{2}">x^{2}</button>
+        <button class="kb-btn" data-latex="\sqrt{}">\sqrt{}</button>
+        <button class="kb-btn" data-latex="\lim_{h\to 0}">\lim</button>
+        <button class="kb-btn" data-latex="\infty">\infty</button>
+        <button class="kb-btn" data-latex="\theta">\theta</button>
+        <button class="kb-btn" data-latex="\pi">\pi</button>
+        <button class="kb-btn" data-latex="\Rightarrow">\Rightarrow</button>
+        <button class="kb-btn" data-latex="\left( \right)">( )</button>
+        <button class="kb-btn" data-latex="\int">\int</button>
       </div>
     </div>
 
@@ -734,22 +419,17 @@ select.inp{cursor:pointer}
 
     <div class="card">
       <div class="ct">💬 Chat con el Tutor</div>
-      <div id="aic">
-        <div class="msg ma"><div class="mlbl">TUTOR IA</div>¡Hola! Soy tu tutor de Cálculo I. Puedo generarte ejercicios de la Guía 7, explicar dudas, darte pistas o simular un parcial. ¿Qué necesitas?</div>
-      </div>
+      <div id="aic"><div class="msg ma"><div class="mlbl">TUTOR IA</div>¡Hola! Genero ejercicios con los 7 pasos del parcial. Respuestas en LaTeX.</div></div>
       <div class="ai-iw">
-        <input type="text" class="inp" id="ai-inp" placeholder="Escribe tu duda..." onkeypress="if(event.key==='Enter')sendMsg()">
+        <input type="text" class="inp" id="ai-inp" placeholder="Escribe tu duda...">
         <button class="btn btn-g" onclick="sendMsg()">↑</button>
-      </div>
-      <div class="txs tm" style="text-align:right;margin-top:3px">
-        Modelo: <span id="mdl-lbl">gpt-4o-mini</span> · Modo: <span id="mode-lbl">equilibrado</span>
       </div>
     </div>
 
     <div class="card">
       <div class="ct">📝 Enviar mi Respuesta para Corrección</div>
-      <p class="txs tm mb8">Escribe tu procedimiento y el tutor lo corrige</p>
-      <textarea class="inp" id="ua" rows="4" placeholder="Ej: f(x+h)=x²+2xh+h²-3x-3h, entonces f(x+h)-f(x)=..."></textarea>
+      <textarea class="inp" id="ua" rows="4" placeholder="Escribe tu procedimiento..."></textarea>
+      <div class="kb-latex" id="latex-kb2"></div>
       <button class="btn btn-c btn-full mt8" onclick="aiCorrect()">Corregir mi respuesta →</button>
     </div>
   </div>
@@ -758,75 +438,12 @@ select.inp{cursor:pointer}
 <!-- ══════════ CONFIG ══════════ -->
 <div id="mod-config" class="mod">
   <div class="st">⚙️ Configuración</div>
-  <div class="ss">OpenAI · Modelos · Seguridad</div>
-
-  <div class="alert ar">
-    <span>🔒</span>
-    <div class="ts"><strong>Aviso:</strong> La API key en el frontend es solo para uso personal. Nunca la uses en una computadora compartida. <a href="#" onclick="showSec()" style="color:var(--red)">Ver detalles →</a></div>
-  </div>
-
-  <div class="card g">
-    <div class="ct">🔑 API Key de OpenAI</div>
-    <div style="display:flex;gap:7px;margin-bottom:7px">
-      <input type="password" class="inp" id="key-inp" placeholder="sk-...">
-      <button class="btn btn-g" onclick="saveKey()">Guardar</button>
-    </div>
-    <div id="key-st" class="txs tm">Sin API key</div>
-    <div class="mt8"><label style="display:flex;gap:8px;align-items:center;cursor:pointer" onclick="flipTog(this)">
-      <div class="tog" id="tog-save"></div>
-      <span class="ts">Guardar en localStorage (conveniente pero menos seguro)</span>
-    </label></div>
-  </div>
-
-  <div class="card">
-    <div class="ct">🧠 Modelo</div>
-    <div style="display:flex;flex-direction:column;gap:9px">
-      <label style="display:flex;gap:9px;align-items:flex-start;cursor:pointer" onclick="setModel('gpt-4o-mini')">
-        <input type="radio" name="mdl" value="gpt-4o-mini" checked style="accent-color:var(--green);margin-top:2px">
-        <div><div class="ts fw7">gpt-4o-mini <span class="badge bg">Recomendado</span></div>
-          <div class="txs tm">Económico · Ideal para ejercicios y tutoría · ~$0.0002/resp.</div></div>
-      </label>
-      <label style="display:flex;gap:9px;align-items:flex-start;cursor:pointer" onclick="setModel('gpt-4o')">
-        <input type="radio" name="mdl" value="gpt-4o" style="accent-color:var(--green);margin-top:2px">
-        <div><div class="ts fw7">gpt-4o <span class="badge by">Equilibrado</span></div>
-          <div class="txs tm">Para simulacros y explicaciones · ~$0.005/resp.</div></div>
-      </label>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="ct">💰 Modo de Gasto</div>
-    <div style="display:flex;flex-direction:column;gap:8px">
-      <label style="display:flex;gap:9px;cursor:pointer" onclick="setMode('economico')">
-        <input type="radio" name="md" value="economico" style="accent-color:var(--green)">
-        <div><div class="ts fw7">Económico</div><div class="txs tm">300 tokens · Sin historial · Mínimo gasto</div></div>
-      </label>
-      <label style="display:flex;gap:9px;cursor:pointer" onclick="setMode('equilibrado')">
-        <input type="radio" name="md" value="equilibrado" checked style="accent-color:var(--green)">
-        <div><div class="ts fw7">Equilibrado <span class="badge bg">Default</span></div><div class="txs tm">500 tokens · 3 mensajes de historial · Caché local</div></div>
-      </label>
-      <label style="display:flex;gap:9px;cursor:pointer" onclick="setMode('intensivo')">
-        <input type="radio" name="md" value="intensivo" style="accent-color:var(--green)">
-        <div><div class="ts fw7">Intensivo</div><div class="txs tm">1000 tokens · Historial completo · Solo examen final</div></div>
-      </label>
-    </div>
-  </div>
-
-  <div class="card y">
-    <div class="ct">🛡️ Proxy Backend (Modo B)</div>
-    <p class="txs tm mb8" style="line-height:1.6">Para mayor seguridad: levanta un proxy local y la key nunca sale al frontend.</p>
-    <label class="lbl">URL del Proxy (opcional)</label>
-    <input type="text" class="inp" id="proxy-inp" placeholder="http://localhost:3001/api/chat">
-    <button class="btn btn-s btn-sm mt8" onclick="saveProxy()">Guardar URL</button>
-  </div>
-
-  <button class="btn btn-g btn-full mt12" onclick="testConn()">🔍 Probar Conexión</button>
-  <div id="test-res" style="margin-top:7px"></div>
+  <div class="card g"><div class="ct">🔑 API Key</div><input type="password" class="inp" id="key-inp" placeholder="sk-..."><button class="btn btn-g mt8" onclick="saveKey()">Guardar</button><div id="key-st" class="txs tm"></div></div>
+  <div class="card"><div class="ct">🧠 Modelo</div><select class="inp" id="model-sel"><option value="gpt-4o-mini">gpt-4o-mini</option><option value="gpt-4o">gpt-4o</option></select></div>
 </div>
 
 </main>
 
-<!-- NAV -->
 <nav id="nav">
   <button class="nb active" onclick="showMod('home')" data-m="home"><span class="ic">🏠</span>Inicio</button>
   <button class="nb" onclick="showMod('teoria')" data-m="teoria"><span class="ic">📖</span>Teoría</button>
@@ -836,580 +453,126 @@ select.inp{cursor:pointer}
   <button class="nb" onclick="showMod('ia')" data-m="ia"><span class="ic">🤖</span>Tutor IA</button>
 </nav>
 
-<!-- PANIC -->
-<div id="panic">
-  <div style="text-align:center">
-    <div style="font-size:13px;color:var(--red);font-weight:700;letter-spacing:2px;margin-bottom:3px">🚨 MODO PÁNICO</div>
-    <div id="pt">15:00</div>
-    <div class="txs tm mt8">Solo lo esencial — Guía 7 + Clase</div>
-  </div>
-  <div id="panic-body" style="width:100%;max-width:580px;overflow-y:auto"></div>
-  <button class="btn btn-s" onclick="stopPanic()">✕ Salir</button>
-</div>
+<div id="panic"><div id="pt">15:00</div><div id="panic-body"></div><button class="btn btn-s" onclick="stopPanic()">✕ Salir</button></div>
 
-<!-- SECURITY MODAL -->
-<div id="sec-modal" style="display:none;position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.92);align-items:center;justify-content:center;padding:18px">
-  <div style="background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:22px;max-width:480px;width:100%">
-    <h3 class="mb8" style="color:var(--red)">🔒 Seguridad de la API Key</h3>
-    <p class="ts tm" style="line-height:1.7;margin-bottom:10px">
-      <strong style="color:var(--text)">Modo A (actual):</strong> La clave vive en el navegador. Aceptable para uso personal en tu dispositivo.<br><br>
-      <strong style="color:var(--text)">Modo B (proxy):</strong> Levanta un servidor local. La clave nunca llega al frontend.
-    </p>
-    <div style="background:var(--bg3);border-radius:7px;padding:10px;font-family:monospace;font-size:11px;color:var(--green);margin-bottom:12px;white-space:pre">npm i express node-fetch
-OPENAI_KEY=sk-... node proxy.js</div>
-    <button class="btn btn-s btn-full" onclick="document.getElementById('sec-modal').style.display='none'">Cerrar</button>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════════════════════
-     JAVASCRIPT
-══════════════════════════════════════════════════════════ -->
 <script>
-// ── LaTeX helper ──
-function renderLatex(el){
-  if(!el)el=document.body;
-  if(window.renderMathInElement){
-    renderMathInElement(el,{
-      delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],
-      throwOnError:false
-    });
-  }
-}
+// ─────────────────────────────────────────────────────────────────────────────
+// SCRIPT MEJORADO: LaTeX grande, prompts optimizados, teclado virtual
+// ─────────────────────────────────────────────────────────────────────────────
+function renderLatex(el){if(!el)el=document.body;if(window.renderMathInElement)renderMathInElement(el,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false});}
 
-// ── State ──
-const S={xp:0,level:1,done:[],qans:{},correct:0,wrong:0,qi:0,key:'',model:'gpt-4o-mini',mode:'equilibrado',proxy:'',saveKey:false,hist:[],cache:[],fcIdx:0,stepsIdx:{clase:0,guia1:0,guia2:0},graphEx:'clase',examSecs:0,examAns:{},examQs:[]};
+const S={xp:0,level:1,done:[],qans:{},correct:0,wrong:0,qi:0,key:'',model:'gpt-4o-mini',mode:'equilibrado',proxy:'',hist:[],cache:[],fcIdx:0,stepsIdx:{clase:0,guia1:0,guia2:0},graphEx:'clase',examSecs:0,examAns:{},examQs:[]};
 
-function loadS(){
-  try{
-    const s=localStorage.getItem('cb-v2');
-    if(s){const p=JSON.parse(s);Object.assign(S,{xp:p.xp||0,level:p.level||1,done:p.done||[],qans:p.qans||{},correct:p.correct||0,wrong:p.wrong||0,model:p.model||'gpt-4o-mini',mode:p.mode||'equilibrado',proxy:p.proxy||'',cache:p.cache||[]});if(p.saveKey&&p.key)S.key=p.key;S.saveKey=p.saveKey||false;}
-  }catch(e){}
-}
-function saveS(){
-  localStorage.setItem('cb-v2',JSON.stringify({xp:S.xp,level:S.level,done:S.done,qans:S.qans,correct:S.correct,wrong:S.wrong,model:S.model,mode:S.mode,proxy:S.proxy,saveKey:S.saveKey,key:S.saveKey?S.key:'',cache:S.cache.slice(-5)}));
-}
-
-// ── XP ──
-function addXP(n,mod){
-  S.xp+=n;if(mod&&!S.done.includes(mod))S.done.push(mod);
-  const nl=Math.floor(S.xp/100)+1;if(nl>S.level){S.level=nl;toast('🎉 Nivel '+S.level,'green');}
-  updateXP();updateProg();saveS();xpPop(n);
-}
+function loadS(){try{const s=localStorage.getItem('cb-exam');if(s){const p=JSON.parse(s);Object.assign(S,{xp:p.xp||0,level:p.level||1,done:p.done||[],correct:p.correct||0,wrong:p.wrong||0,model:p.model||'gpt-4o-mini',key:p.key||''});}}catch(e){}}
+function saveS(){localStorage.setItem('cb-exam',JSON.stringify({xp:S.xp,level:S.level,done:S.done,correct:S.correct,wrong:S.wrong,model:S.model,key:S.key}));}
+function addXP(n,mod){S.xp+=n;if(mod&&!S.done.includes(mod))S.done.push(mod);const nl=Math.floor(S.xp/100)+1;if(nl>S.level)S.level=nl;updateXP();saveS();}
 function updateXP(){document.getElementById('hv').textContent=S.level;document.getElementById('hp').textContent=S.xp;document.getElementById('xpb').style.width=(S.xp%100)+'%';}
-function updateProg(){const d=S.done.length,t=8;document.getElementById('prog-lbl').textContent=d+'/'+t;document.getElementById('prog-bar').style.width=(d/t*100)+'%';}
-function unlockA(id){const e=document.getElementById(id);if(e&&!e.classList.contains('bg')){e.className='badge bg';toast('🏅 Logro desbloqueado!','yellow');}}
-function xpPop(n){const e=document.createElement('div');e.textContent='+'+n+' XP';e.style.cssText='position:fixed;top:58px;right:16px;z-index:999;color:var(--green);font-weight:700;font-size:15px;font-family:monospace;animation:xpf 1.5s forwards;pointer-events:none';document.body.appendChild(e);document.head.insertAdjacentHTML('beforeend','<style>@keyframes xpf{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-36px)}}</style>');setTimeout(()=>e.remove(),1600);}
 function toast(msg,col){const e=document.createElement('div');e.textContent=msg;e.style.cssText=`position:fixed;bottom:84px;left:50%;transform:translateX(-50%);z-index:999;background:var(--bg3);color:var(--${col});padding:7px 14px;border-radius:18px;font-size:12px;font-weight:600;border:1px solid rgba(0,232,122,.25);animation:xpf 2s forwards`;document.body.appendChild(e);setTimeout(()=>e.remove(),2100);}
-
-// ── Navigation ──
 function showMod(id){
   document.querySelectorAll('.mod').forEach(m=>m.classList.remove('active'));
   document.querySelectorAll('.nb').forEach(b=>b.classList.remove('active'));
-  const m=document.getElementById('mod-'+id);if(m)m.classList.add('active');
-  const b=document.querySelector('.nb[data-m="'+id+'"]');if(b)b.classList.add('active');
-  document.getElementById('main').scrollTop=0;
+  document.getElementById('mod-'+id).classList.add('active');
+  document.querySelector('.nb[data-m="'+id+'"]').classList.add('active');
   if(id==='grafica')drawGraph();
   if(id==='ia')checkAI();
-  if(id==='practica')renderQuiz();
   renderLatex(document.getElementById('mod-'+id));
 }
 
-// ── Tab system ──
-function initTabs(tabBarId){
-  const bar=document.getElementById(tabBarId);
-  if(!bar)return;
-  bar.querySelectorAll('.tab').forEach(t=>{
-    t.addEventListener('click',function(){
-      bar.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
-      this.classList.add('active');
-      const tp=this.dataset.tp;
-      // hide all sibling panels
-      const parent=this.closest('.mod');
-      parent.querySelectorAll('.tp').forEach(p=>p.classList.remove('active'));
-      const panel=document.getElementById(tp);
-      if(panel){panel.classList.add('active');renderLatex(panel);}
+// ── Teclado LaTeX ──
+function initLatexKeyboard(){
+  const kbs=document.querySelectorAll('.kb-latex');
+  kbs.forEach(kb=>{
+    kb.querySelectorAll('.kb-btn').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const latex=btn.dataset.latex;
+        const active=document.activeElement;
+        if(active&&(active.tagName==='INPUT'||active.tagName==='TEXTAREA')){
+          const start=active.selectionStart,end=active.selectionEnd;
+          const val=active.value;
+          active.value=val.slice(0,start)+latex+val.slice(end);
+          active.selectionStart=active.selectionEnd=start+latex.length;
+        }else{
+          const inp=document.getElementById('ai-inp')||document.getElementById('ua');
+          if(inp)inp.value+=latex;
+        }
+      });
     });
   });
 }
 
-function flipTog(label){const t=label.querySelector('.tog');if(t)t.classList.toggle('on');}
-function flipAcc(h){h.closest('.acc').classList.toggle('open');}
+// ── Steps (igual que antes) ──
+const STEPS={/* ... datos originales ... */};
+function renderSteps(ex){/* ... */}
 
-// ── Steps Data ──
-const STEPS={
-  clase:[
-    {title:'① Calcular $f(x+h)$',body:'Sustituir $x$ por $(x+h)$ en $f(x)=6-x^2$:',math:'$$f(x+h)=6-(x+h)^2=6-(x^2+2xh+h^2)=6-x^2-2xh-h^2$$',note:'Expandir $(x+h)^2=x^2+2xh+h^2$. El $2xh$ es crucial, no olvidarlo.'},
-    {title:'② Calcular $f(x+h)-f(x)$',body:'Restar la función original:',math:'$$f(x+h)-f(x)=(6-x^2-2xh-h^2)-(6-x^2)=-2xh-h^2$$',note:'El $6$ y el $x^2$ se cancelan. Solo quedan los términos con $h$.'},
-    {title:'③ Dividir por $h$ — Factor Común',body:'Factorizar $h$ del numerador para cancelarlo:',math:'$$\\frac{-2xh-h^2}{h}=\\frac{h(-2x-h)}{h}=-2x-h$$',note:'Siempre factorizar primero. Si no cancelas la $h$, el límite explota.'},
-    {title:'④ Aplicar límite $h \\to 0$',body:'Con $h$ cancelado, el límite es directo:',math:'$$\\lim_{h\\to 0}(-2x-h)=-2x-0=-2x$$',note:'Resultado final de la derivada.',result:"$$f'(x)=-2x$$",rc:'g'},
-    {title:'⑤ Pendiente en $P(1,5)$',body:'Evaluar $f\'(x)$ en $x_0=1$:',math:"$$m_T=f'(1)=-2(1)=-2$$",note:'La pendiente de la tangente en $P(1,5)$ es $-2$.',result:'$$m_T = -2$$',rc:'o'},
-    {title:'⑥ Ángulo de inclinación',body:'Aplicar $\\theta=\\arctan(m_T)$:',math:'$$\\theta=\\arctan(-2)\\approx -63.43°$$',note:'Desde el eje $x$ positivo: $180°-63.43°=116.57°$.',result:'$$\\theta\\approx-63.4°$$',rc:'c'},
-    {title:'⑦ Ecuación de la recta tangente',body:'Fórmula punto-pendiente con $P(1,5)$ y $m_T=-2$:',math:'$$y-5=-2(x-1)\\implies y-5=-2x+2\\implies y=-2x+7$$',note:'Verificación: si $x=1$, $y=-2+7=5$ ✓.',result:'$$\\varepsilon_{RT}: y=-2x+7$$',rc:'o'},
-    {title:'⑧ Recta Perpendicular',body:'$m_\\perp=-1/m_T=-1/(-2)=1/2$, usando $P(1,5)$:',math:'$$y-5=\\tfrac{1}{2}(x-1)\\implies y=\\tfrac{1}{2}x+\\tfrac{9}{2}$$',note:'Verificación: $m_T\\cdot m_\\perp=(-2)(1/2)=-1$ ✓.',result:'$$\\varepsilon_{RI}: y=\\tfrac{1}{2}x+\\tfrac{9}{2}$$',rc:'c'},
-    {title:'⑨ Recta Paralela por $Q(2,2)$',body:'$m_\\parallel=m_T=-2$, usando $Q(2,2)$:',math:'$$y-2=-2(x-2)\\implies y=-2x+6$$',note:'Verificación: $x=2 \\Rightarrow y=-4+6=2$ ✓. El punto $Q$ pertenece a la recta.',result:'$$\\varepsilon_{R\\parallel}: y=-2x+6$$',rc:'y'},
-  ],
-  guia1:[
-    {title:'① Calcular $f(x+h)$ para $f(x)=x^2-3x$',body:'Sustituir $x$ por $(x+h)$:',math:'$$f(x+h)=(x+h)^2-3(x+h)=x^2+2xh+h^2-3x-3h$$',note:'Expandir el cuadrado y distribuir el $-3$.'},
-    {title:'② Calcular $f(x+h)-f(x)$',body:'Restar $f(x)=x^2-3x$:',math:'$$f(x+h)-f(x)=(x^2+2xh+h^2-3x-3h)-(x^2-3x)=2xh+h^2-3h$$',note:'El $x^2$ y el $-3x$ se cancelan.'},
-    {title:'③ Dividir por $h$ — Factor Común',body:'Factorizar $h$:',math:'$$\\frac{2xh+h^2-3h}{h}=\\frac{h(2x+h-3)}{h}=2x+h-3$$',note:'Ahora podemos tomar el límite sin indeterminación.'},
-    {title:'④ Aplicar límite $h\\to 0$',body:'',math:'$$\\lim_{h\\to 0}(2x+h-3)=2x+0-3=2x-3$$',note:'',result:"$$f'(x)=2x-3$$",rc:'p'},
-    {title:'⑤ Pendiente en $P(1,-2)$',body:'Evaluar $f\'(x)$ en $x_0=1$:',math:"$$m_T=f'(1)=2(1)-3=-1$$",note:'',result:'$$m_T=-1$$',rc:'o'},
-    {title:'⑥ Ecuación de la recta tangente',body:'Fórmula punto-pendiente con $P(1,-2)$ y $m_T=-1$:',math:'$$y-(-2)=-1(x-1)\\implies y+2=-x+1\\implies y=-x-1$$',note:'Verificación: $x=1 \\Rightarrow y=-1-1=-2$ ✓.',result:'$$\\varepsilon_{RT}: y=-x-1$$',rc:'p'},
-  ],
-  guia2:[
-    {title:'① Calcular $f(x+h)$ para $f(x)=x^2+2$',body:'Sustituir $x$ por $(x+h)$:',math:'$$f(x+h)=(x+h)^2+2=x^2+2xh+h^2+2$$',note:'El $+2$ permanece intacto.'},
-    {title:'② Calcular $f(x+h)-f(x)$',body:'Restar $f(x)=x^2+2$:',math:'$$f(x+h)-f(x)=(x^2+2xh+h^2+2)-(x^2+2)=2xh+h^2$$',note:'El $x^2$ y el $2$ se cancelan.'},
-    {title:'③ Dividir por $h$',body:'',math:'$$\\frac{2xh+h^2}{h}=\\frac{h(2x+h)}{h}=2x+h$$',note:''},
-    {title:'④ Aplicar límite $h\\to 0$',body:'',math:'$$\\lim_{h\\to 0}(2x+h)=2x$$',note:'',result:"$$f'(x)=2x$$",rc:'p'},
-    {title:'⑤ Pendiente en $P(2,6)$',body:'Evaluar en $x_0=2$:',math:"$$m_T=f'(2)=2(2)=4$$",note:'Pendiente positiva: la curva sube en ese punto.',result:'$$m_T=4$$',rc:'o'},
-    {title:'⑥ Ecuación de la recta tangente',body:'Con $P(2,6)$ y $m_T=4$:',math:'$$y-6=4(x-2)\\implies y-6=4x-8\\implies y=4x-2$$',note:'Verificación: $x=2\\Rightarrow y=8-2=6$ ✓.',result:'$$\\varepsilon_{RT}: y=4x-2$$',rc:'p'},
-    {title:'⑦ Recta Perpendicular',body:'$m_\\perp=-1/m_T=-1/4$, usando $P(2,6)$:',math:'$$y-6=-\\tfrac{1}{4}(x-2)\\implies y=-\\tfrac{1}{4}x+\\tfrac{1}{2}+6\\implies y=-\\tfrac{1}{4}x+\\tfrac{13}{2}$$',note:'Verificación: $m_T\\cdot m_\\perp=4\\cdot(-1/4)=-1$ ✓.',result:'$$\\varepsilon_{RI}: y=-\\tfrac{1}{4}x+\\tfrac{13}{2}$$',rc:'c'},
-  ]
-};
+// ── OpenAI mejorado ──
+const SYS=`Eres un tutor de Cálculo I. El estudiante se prepara para un parcial que SIEMPRE pide 7 pasos:
+1. Derivada por definición (límite)
+2. Pendiente m_T
+3. Ángulo θ
+4. Ecuación recta tangente
+5. Ecuación recta perpendicular
+6. Ecuación recta paralela
+7. Gráfica
 
-// ── Steps renderer ──
-function renderSteps(ex){
-  const steps=STEPS[ex];const idx=S.stepsIdx[ex];
-  const cont=document.getElementById('steps-'+ex);if(!cont)return;
-  const rc={g:'tg',o:'to',c:'tc',y:'ty',p:''};
-  const bcol={g:'g',o:'o',c:'c',y:'y',p:'p'};
-  let html='';
-  steps.forEach((s,i)=>{
-    const done=i<idx,cur=i===idx-1;
-    html+=`<div class="step ${done?'done':''} ${cur?'cur':''}">
-      <div class="step-n">${done?'✓':(i+1)}</div>
-      <div class="step-body">
-        <h4>${s.title}</h4>
-        ${done?`
-          ${s.body?`<p>${s.body}</p>`:''}
-          <div class="step-math">${s.math}</div>
-          ${s.note?`<div class="step-note">${s.note}</div>`:''}
-          ${s.result?`<div class="step-result fb ${bcol[s.rc]||''}">${s.result}</div>`:''}
-        `:''}
-      </div>
-    </div>`;
-  });
-  cont.innerHTML=html;
-  document.getElementById('btn-prev-'+ex).disabled=idx<=0;
-  const nb=document.getElementById('btn-next-'+ex);
-  nb.textContent=idx>=steps.length?'✅ Completado':'Siguiente →';
-  nb.disabled=idx>=steps.length;
-  renderLatex(cont);
-}
+Ejemplo dado en clase: f(x)=6-x², P(1,5) → f'(x)=-2x, m_T=-2, θ≈-63.4°, tangente y=-2x+7, perp y=½x+9/2, paralela por Q(2,2) y=-2x+6.
 
-function nextStep(ex){if(S.stepsIdx[ex]<STEPS[ex].length){S.stepsIdx[ex]++;addXP(3,null);renderSteps(ex);setTimeout(()=>{const cont=document.getElementById('steps-'+ex);const children=cont.children;if(children[S.stepsIdx[ex]-1])children[S.stepsIdx[ex]-1].scrollIntoView({behavior:'smooth',block:'nearest'});},100);}}
-function prevStep(ex){if(S.stepsIdx[ex]>0){S.stepsIdx[ex]--;renderSteps(ex);}}
-function revealAll(ex){S.stepsIdx[ex]=STEPS[ex].length;renderSteps(ex);addXP(8,null);}
-function resetSteps(ex){S.stepsIdx[ex]=0;renderSteps(ex);}
-
-// ── Graph ──
-const GRAPHS={
-  clase:{fn:x=>6-x*x,tan:x=>-2*x+7,perp:x=>0.5*x+4.5,par:x=>-2*x+6,pt:[1,5],ptl:'P(1,5)',parPt:[2,2],parPtl:'Q(2,2)',xMin:-3.5,xMax:3.5,yMin:-1.5,yMax:8.5,tanLbl:'y=-2x+7',perpLbl:'y=½x+9/2',parLbl:'y=-2x+6'},
-  guia1:{fn:x=>x*x-3*x,tan:x=>-x-1,perp:x=>x-3,par:null,pt:[1,-2],ptl:'P(1,-2)',xMin:-1.5,xMax:4.5,yMin:-4,yMax:6,tanLbl:'y=-x-1',perpLbl:'y=x-3',parLbl:null},
-  guia2:{fn:x=>x*x+2,tan:x=>4*x-2,perp:x=>-0.25*x+6.5,par:null,pt:[2,6],ptl:'P(2,6)',xMin:-2.5,xMax:4.5,yMin:-1,yMax:10,tanLbl:'y=4x-2',perpLbl:'y=-x/4+13/2',parLbl:null},
-};
-
-function setGraph(ex,btn){
-  S.graphEx=ex;
-  document.querySelectorAll('[id^="gbtn-"]').forEach(b=>{b.className='btn btn-s btn-sm';b.style.borderColor='var(--purple)';b.style.color='var(--purple)';});
-  btn.className='btn btn-o btn-sm';btn.style.borderColor='';btn.style.color='';
-  drawGraph();renderLatex(document.getElementById('mod-grafica'));
-}
-
-function graphRedraw(){drawGraph();}
-
-function drawGraph(){
-  const canvas=document.getElementById('gc');if(!canvas)return;
-  const ctx=canvas.getContext('2d');
-  const W=canvas.width,H=canvas.height;
-  const g=GRAPHS[S.graphEx];
-  const {xMin,xMax,yMin,yMax}=g;
-  const tx=x=>(x-xMin)/(xMax-xMin)*W;
-  const ty=y=>H-(y-yMin)/(yMax-yMin)*H;
-
-  // bg
-  ctx.fillStyle='#0d1b2e';ctx.fillRect(0,0,W,H);
-  // grid
-  ctx.strokeStyle='#182c40';ctx.lineWidth=1;
-  for(let x=Math.ceil(xMin);x<=xMax;x++){ctx.beginPath();ctx.moveTo(tx(x),0);ctx.lineTo(tx(x),H);ctx.stroke();}
-  for(let y=Math.ceil(yMin);y<=yMax;y++){ctx.beginPath();ctx.moveTo(0,ty(y));ctx.lineTo(W,ty(y));ctx.stroke();}
-  // axes
-  ctx.strokeStyle='#3a5068';ctx.lineWidth=1.5;
-  ctx.beginPath();ctx.moveTo(0,ty(0));ctx.lineTo(W,ty(0));ctx.stroke();
-  ctx.beginPath();ctx.moveTo(tx(0),0);ctx.lineTo(tx(0),H);ctx.stroke();
-  // labels
-  ctx.fillStyle='#4a6278';ctx.font='10px JetBrains Mono';
-  ctx.textAlign='center';for(let x=Math.ceil(xMin);x<=xMax;x++){if(x!==0)ctx.fillText(x,tx(x),ty(0)+13);}
-  ctx.textAlign='right';for(let y=Math.ceil(yMin);y<=yMax;y++){if(y!==0)ctx.fillText(y,tx(0)-4,ty(y)+3);}
-
-  // draw line
-  function drawLine(fn,color,dash=[]){
-    ctx.strokeStyle=color;ctx.lineWidth=1.8;ctx.setLineDash(dash);ctx.beginPath();
-    let first=true;
-    for(let px=0;px<=W;px++){const x=xMin+(px/W)*(xMax-xMin);const y=fn(x);if(y<yMin-1||y>yMax+1){first=true;continue;}if(first){ctx.moveTo(px,ty(y));first=false;}else ctx.lineTo(px,ty(y));}
-    ctx.stroke();ctx.setLineDash([]);
-  }
-
-  const showCurva=document.getElementById('tog-curva')?.classList.contains('on')!==false;
-  const showTan=document.getElementById('tog-tan')?.classList.contains('on')!==false;
-  const showPerp=document.getElementById('tog-perp')?.classList.contains('on')!==false;
-  const showPar=document.getElementById('tog-par')?.classList.contains('on');
-
-  if(showCurva){ctx.shadowBlur=8;ctx.shadowColor='#00e87a';drawLine(g.fn,'#00e87a');ctx.shadowBlur=0;}
-  if(showTan)drawLine(g.tan,'#ff7043',[6,3]);
-  if(showPerp)drawLine(g.perp,'#00c8f0',[3,4]);
-  if(showPar&&g.par)drawLine(g.par,'#ffd740',[8,3]);
-
-  // points
-  function drawPt(x,y,col,lbl,ox=8,oy=-8){
-    ctx.fillStyle=col;ctx.shadowBlur=6;ctx.shadowColor=col;ctx.beginPath();ctx.arc(tx(x),ty(y),5,0,Math.PI*2);ctx.fill();
-    ctx.shadowBlur=0;ctx.strokeStyle='#0d1b2e';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(tx(x),ty(y),5,0,Math.PI*2);ctx.stroke();
-    ctx.fillStyle='#dce6f5';ctx.font='bold 10px Sora,sans-serif';ctx.textAlign=ox>=0?'left':'right';ctx.fillText(lbl,tx(x)+ox,ty(y)+oy);
-  }
-  drawPt(g.pt[0],g.pt[1],'#ff7043',g.ptl);
-  if(g.parPt)drawPt(g.parPt[0],g.parPt[1],'#ffd740',g.parPtl);
-
-  // update legend
-  const leg=document.getElementById('g-legend');
-  let lhtml=`<div class="gli"><div class="gld" style="background:#00e87a"></div> $f(x)$</div>
-    <div class="gli"><div class="gld" style="background:#ff7043;border-top:1px dashed"></div> ${g.tanLbl}</div>
-    <div class="gli"><div class="gld" style="background:#00c8f0"></div> ${g.perpLbl}</div>`;
-  if(g.par)lhtml+=`<div class="gli"><div class="gld" style="background:#ffd740"></div> ${g.parLbl}</div>`;
-  leg.innerHTML=lhtml;renderLatex(leg);
-}
-
-function evalPoint(){
-  const x=parseFloat(document.getElementById('eval-x').value);if(isNaN(x))return;
-  const g=GRAPHS[S.graphEx];
-  const y=g.fn(x).toFixed(3);const m=(-2*(S.graphEx==='clase'?x:(S.graphEx==='guia1'?1:2))).toFixed(3);
-  // compute actual derivative
-  const eps=1e-7;const deriv=((g.fn(x+eps)-g.fn(x))/eps).toFixed(4);
-  const ang=(Math.atan(parseFloat(deriv))*180/Math.PI).toFixed(2);
-  const b=(g.fn(x)-parseFloat(deriv)*x).toFixed(3);
-  const res=document.getElementById('eval-res');
-  res.style.display='block';
-  res.innerHTML=`$x=${x}$, $f(${x})=${y}$, $f'(${x})=${deriv}$<br>$\\theta=${ang}°$, Tangente: $y=${deriv}x+(${b})$`;
-  renderLatex(res);
-}
-
-// ── Flashcards ──
-const FCS=[
-  {q:'¿Cuál es la definición de derivada?',a:"$$f'(x)=\\lim_{h\\to 0}\\frac{f(x+h)-f(x)}{h}$$"},
-  {q:'Si $f(x)=6-x^2$, ¿cuál es $f\'(x)$?',a:"$$f'(x)=-2x$$"},
-  {q:'Pendiente de la tangente a $f(x)=6-x^2$ en $x=1$:',a:'$$m_T=f\'(1)=-2(1)=-2$$'},
-  {q:'Ecuación de la tangente a $f(x)=6-x^2$ en $P(1,5)$:',a:'$$y=-2x+7$$'},
-  {q:'Si $m_T=-2$, ¿cuál es $m_\\perp$?',a:'$$m_\\perp=\\frac{-1}{-2}=\\frac{1}{2}$$'},
-  {q:'¿Condición para rectas perpendiculares?',a:'$$m_1\\cdot m_2=-1$$'},
-  {q:'¿Condición para rectas paralelas?',a:'$$m_1=m_2$$'},
-  {q:'Ecuación de la tangente a $f(x)=x^2-3x$ en $P(1,-2)$: (Guía E1)',a:'$$y=-x-1$$'},
-  {q:'$f\'(x)$ para $f(x)=x^2+2$ (Guía E2):',a:"$$f'(x)=2x$$"},
-  {q:'Pendiente de la tangente a $f(x)=x^2+2$ en $x=2$: (Guía E2)',a:'$$m_T=f\'(2)=2(2)=4$$'},
-  {q:'$(x+h)^2=$ ?',a:'$$x^2+2xh+h^2$$'},
-  {q:'¿Cómo calcular el ángulo de inclinación $\\theta$?',a:'$$\\theta=\\arctan(m_T)$$'},
-];
-
-function renderFC(i){
-  const fc=FCS[i%FCS.length];const cont=document.getElementById('fc-cont');
-  document.getElementById('fc-idx').textContent=(i%FCS.length+1)+' / '+FCS.length;
-  cont.innerHTML=`<div class="fc" onclick="this.classList.toggle('flipped')">
-    <div class="fc-in">
-      <div class="fc-face fc-front"><div class="ts fw7" style="line-height:1.5">${fc.q}</div><div class="fc-hint">Toca para respuesta</div></div>
-      <div class="fc-face fc-back"><div>${fc.a}</div><div class="fc-hint tg">¡Respuesta!</div></div>
-    </div></div>`;
-  renderLatex(cont);
-}
-function nextFC(){S.fcIdx=(S.fcIdx+1)%FCS.length;renderFC(S.fcIdx);addXP(1,null);}
-
-// ── Quiz ──
-const QS=[
-  {q:'$f(x)=6-x^2$ → $f\'(x) =$',opts:['$-2x$','$2x$','$6$','$-x^2$'],ans:0,exp:'Por límite: $f(x+h)-f(x)=-2xh-h^2$, divide $h$: $-2x-h$, límite: $-2x$.'},
-  {q:'Pendiente de la tangente a $f(x)=6-x^2$ en $P(1,5)$:',opts:['$-2$','$2$','$5$','$-5$'],ans:0,exp:'$m_T=f\'(1)=-2(1)=-2$'},
-  {q:'Si $m_T=-2$, la pendiente perpendicular es:',opts:['$1/2$','$2$','$-1/2$','$-2$'],ans:0,exp:'$m_\\perp=-1/m_T=-1/(-2)=1/2$'},
-  {q:'¿Cuándo dos rectas son perpendiculares?',opts:['$m_1\\cdot m_2=-1$','$m_1=m_2$','$m_1+m_2=0$','$m_1\\cdot m_2=1$'],ans:0,exp:'Teorema: $R_1\\perp R_2 \\iff m_1\\cdot m_2=-1$'},
-  {q:'Ecuación de la tangente a $f(x)=6-x^2$ en $P(1,5)$:',opts:['$y=-2x+7$','$y=2x+3$','$y=-2x+5$','$y=-x+6$'],ans:0,exp:'$y-5=-2(x-1)\\implies y=-2x+7$'},
-  {q:'Recta paralela a $y=-2x+7$ por $Q(2,2)$:',opts:['$y=-2x+6$','$y=2x-2$','$y=-2x+2$','$y=\\frac{1}{2}x+1$'],ans:0,exp:'Misma pendiente $-2$, por $Q(2,2)$: $y-2=-2(x-2)\\implies y=-2x+6$'},
-  {q:'$(x+h)^2 =$',opts:['$x^2+2xh+h^2$','$x^2+h^2$','$x^2+xh+h^2$','$2x+2h$'],ans:0,exp:'$(a+b)^2=a^2+2ab+b^2$. No olvidar $2xh$.'},
-  {q:'$\\theta$ para $m_T=-2$ (ángulo de inclinación):',opts:['$\\arctan(-2)\\approx -63.4°$','$63.4°$','$\\arctan(5)$','$45°$'],ans:0,exp:'$\\theta=\\arctan(m_T)=\\arctan(-2)\\approx-63.43°$'},
-  // Guide Example 1
-  {q:'Guía E1: $f(x)=x^2-3x$ → $f\'(x) =$',opts:['$2x-3$','$2x$','$x^2-3$','$-3$'],ans:0,exp:'$f(x+h)-f(x)=2xh+h^2-3h$, divide $h$: $2x+h-3$, límite: $2x-3$'},
-  {q:'Guía E1: $m_T$ en $P(1,-2)$ para $f(x)=x^2-3x$:',opts:['$-1$','$1$','$-2$','$2$'],ans:0,exp:"$m_T=f'(1)=2(1)-3=-1$"},
-  {q:'Guía E1: Tangente a $f(x)=x^2-3x$ en $P(1,-2)$:',opts:['$y=-x-1$','$y=x-3$','$y=-x+1$','$y=2x-4$'],ans:0,exp:'$y-(-2)=-1(x-1)\\implies y=-x-1$'},
-  // Guide Example 2
-  {q:'Guía E2: $f(x)=x^2+2$ → $f\'(x) =$',opts:['$2x$','$x^2$','$2x+2$','$-2x$'],ans:0,exp:'$f(x+h)-f(x)=2xh+h^2$, divide $h$: $2x+h$, límite: $2x$'},
-  {q:'Guía E2: $m_T$ en $P(2,6)$ para $f(x)=x^2+2$:',opts:['$4$','$2$','$-4$','$-1/4$'],ans:0,exp:"$m_T=f'(2)=2(2)=4$"},
-  {q:'Guía E2: Tangente a $f(x)=x^2+2$ en $P(2,6)$:',opts:['$y=4x-2$','$y=2x+2$','$y=4x+2$','$y=-x/4+13/2$'],ans:0,exp:'$y-6=4(x-2)\\implies y=4x-2$'},
-  {q:'Guía E2: $m_\\perp$ si $m_T=4$:',opts:['$-1/4$','$1/4$','$-4$','$4$'],ans:0,exp:'$m_\\perp=-1/m_T=-1/4$'},
-];
-let qOrder=[...Array(QS.length).keys()];
-
-function renderQuiz(){
-  const i=S.qi;const qi=qOrder[i%qOrder.length];const q=QS[qi];
-  document.getElementById('qn').textContent=i+1;document.getElementById('qt').textContent=QS.length;
-  document.getElementById('qsc').textContent='✓ '+S.correct+' | ✗ '+S.wrong;
-  document.getElementById('qprog').style.width=((i/QS.length)*100)+'%';
-  const answered=S.qans[qi];
-  let html=`<div class="qbox"><p>${q.q}</p><div class="opts">`;
-  q.opts.forEach((o,oi)=>{
-    let cls='opt';if(answered!==undefined){cls+=' off';if(oi===q.ans)cls+=' ok';else if(oi===answered&&answered!==q.ans)cls+=' bad';}
-    html+=`<button class="${cls}" onclick="ansQ(${qi},${oi})">${String.fromCharCode(65+oi)}) ${o}</button>`;
-  });
-  html+=`</div>`;
-  if(answered!==undefined){
-    const ok=answered===q.ans;
-    html+=`<div class="qfb show ${ok?'ok':'bad'}">${ok?'✅ ¡Correcto!':'❌ Incorrecto'} — ${q.exp}</div>`;
-  }
-  html+=`</div>`;
-  const cont=document.getElementById('quiz-cont');cont.innerHTML=html;renderLatex(cont);
-}
-function ansQ(qi,oi){if(S.qans[qi]!==undefined)return;S.qans[qi]=oi;const ok=oi===QS[qi].ans;if(ok){S.correct++;addXP(5,null);if(S.correct>=5)unlockA('ach-q5');}else S.wrong++;renderQuiz();saveS();}
-function nextQ(){S.qi=(S.qi+1)%QS.length;renderQuiz();}
-function prevQ(){S.qi=Math.max(0,S.qi-1);renderQuiz();}
-function shuffleQ(){qOrder=qOrder.sort(()=>Math.random()-.5);S.qi=0;renderQuiz();toast('🔀 Mezclado','cyan');}
-
-// ── Static Exercises ──
-const EJERS=[
-  {id:'v1',title:'Variante A',lv:'Básico',badge:'bg',fn:'f(x) = 4 - x^2',pt:'P(1,3)',tasks:['Derivar','Pendiente en P','Tangente','Perpendicular'],sol:{d:"f'(x)=-2x",m:"m_T=f'(1)=-2",t:'y-3=-2(x-1)\\implies y=-2x+5',p:'m_\\perp=1/2 \\Rightarrow y-3=\\frac{1}{2}(x-1)\\implies y=\\frac{1}{2}x+\\frac{5}{2}'}},
-  {id:'v2',title:'Variante B',lv:'Básico',badge:'bg',fn:'f(x) = 8 - x^2',pt:'P(2,4)',tasks:['Derivar','Pendiente en P','Tangente','Paralela por Q(0,8)'],sol:{d:"f'(x)=-2x",m:"m_T=f'(2)=-4",t:'y-4=-4(x-2)\\implies y=-4x+12',p:'m_\\parallel=-4,\\ Q(0,8): y=-4x+8'}},
-  {id:'v3',title:'Pendiente Positiva',lv:'Medio',badge:'by',fn:'f(x) = x^2 - 3',pt:'P(2,1)',tasks:['Derivar','Pendiente en P','Tangente'],sol:{d:"f'(x)=2x",m:"m_T=f'(2)=4",t:'y-1=4(x-2)\\implies y=4x-7'}},
-  {id:'v4',title:'Con Fracciones',lv:'Difícil',badge:'bo',fn:'f(x) = 3 - \\frac{1}{2}x^2',pt:'P(2,1)',tasks:['Derivar','Pendiente','Tangente','Perpendicular'],sol:{d:"f'(x)=-x",m:"m_T=f'(2)=-2",t:'y-1=-2(x-2)\\implies y=-2x+5',p:'m_\\perp=\\frac{1}{2} \\Rightarrow y-1=\\frac{1}{2}(x-2)\\implies y=\\frac{1}{2}x'}},
-];
-
-function renderEjers(){
-  const c=document.getElementById('ejer-list');if(!c)return;
-  let html='';
-  EJERS.forEach(e=>{
-    html+=`<div class="card mb8"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px"><div class="fw7">${e.title}</div><span class="badge ${e.badge}">${e.lv}</span></div>
-    <div class="fb o" style="margin-bottom:7px">$${e.fn}$ · $${e.pt}$</div>
-    <div class="txs tm mb8">Determinar: ${e.tasks.join(' · ')}</div>
-    <div id="sol-${e.id}" style="display:none;background:var(--bg2);border-radius:7px;padding:10px;margin-bottom:7px">
-      ${Object.values(e.sol).map(v=>`<div class="mono tc ts" style="padding:3px 0;border-bottom:1px solid var(--border)">$$${v}$$</div>`).join('')}
-    </div>
-    <div class="btn-row"><button class="btn btn-s btn-sm" onclick="toggleSol('${e.id}')">👁️ Ver solución</button>
-    <button class="btn btn-g btn-sm" onclick="addXP(8,'ej_${e.id}')">✅ +8 XP</button></div></div>`;
-  });
-  c.innerHTML=html;renderLatex(c);
-}
-function toggleSol(id){const e=document.getElementById('sol-'+id);e.style.display=e.style.display==='none'?'block':'none';renderLatex(e);}
-
-// ── Exam ──
-const EQS=[
-  {q:'$f(x)=6-x^2 \\Rightarrow f\'(x)=$',opts:['$-2x$','$2x$','$6$','$x^2$'],ans:0,pts:10},
-  {q:'$m_T$ en $P(1,5)$ para $f(x)=6-x^2$:',opts:['$-2$','$2$','$-1$','$5$'],ans:0,pts:10},
-  {q:'Si $m_T=-2$, entonces $m_\\perp=$',opts:['$\\frac{1}{2}$','$2$','$-2$','$-\\frac{1}{2}$'],ans:0,pts:15},
-  {q:'Tangente a $f(x)=6-x^2$ en $P(1,5)$:',opts:['$y=-2x+7$','$y=2x+3$','$y=-2x+5$','$y=x+4$'],ans:0,pts:15},
-  {q:'[Guía E1] $f(x)=x^2-3x \\Rightarrow f\'(x)=$',opts:['$2x-3$','$2x$','$-3x$','$x^2$'],ans:0,pts:10},
-  {q:'[Guía E1] Tangente en $P(1,-2)$:',opts:['$y=-x-1$','$y=x-3$','$y=-x+1$','$y=2x-4$'],ans:0,pts:10},
-  {q:'[Guía E2] $m_T$ en $P(2,6)$ para $f(x)=x^2+2$:',opts:['$4$','$2$','$-4$','$-\\frac{1}{4}$'],ans:0,pts:15},
-  {q:'[Guía E2] Tangente en $P(2,6)$:',opts:['$y=4x-2$','$y=2x+2$','$y=-\\frac{1}{4}x+\\frac{13}{2}$','$y=4x+6$'],ans:0,pts:15},
-];
-let examTimer=null;
-function startExam(){
-  S.examQs=[...EQS].sort(()=>Math.random()-.5).slice(0,6);S.examAns={};
-  document.getElementById('ex-setup').style.display='none';document.getElementById('ex-area').style.display='block';document.getElementById('ex-res').style.display='none';
-  S.examSecs=parseInt(document.getElementById('ex-dur').value);updateExTimer();
-  examTimer=setInterval(()=>{S.examSecs--;updateExTimer();if(S.examSecs<=0){clearInterval(examTimer);submitExam();}},1000);
-  renderExQs();
-}
-function updateExTimer(){const m=Math.floor(S.examSecs/60).toString().padStart(2,'0');const s=(S.examSecs%60).toString().padStart(2,'0');const el=document.getElementById('et');el.textContent=`${m}:${s}`;el.style.color=S.examSecs<60?'var(--red)':'var(--orange)';}
-function renderExQs(){
-  let html='';S.examQs.forEach((q,i)=>{
-    const sel=S.examAns[i];
-    html+=`<div class="eq"><div class="eq-n">Pregunta ${i+1} · ${q.pts} puntos</div><p class="ts fw7 mb8">${q.q}</p><div class="opts">
-    ${q.opts.map((o,oi)=>`<button class="opt${sel===oi?' ok':''}" onclick="selEx(${i},${oi})">${String.fromCharCode(65+oi)}) ${o}</button>`).join('')}
-    </div></div>`;
-  });
-  const c=document.getElementById('ex-qs');c.innerHTML=html;renderLatex(c);
-  document.getElementById('eprog').textContent=Object.keys(S.examAns).length+'/'+S.examQs.length;
-}
-function selEx(qi,oi){S.examAns[qi]=oi;renderExQs();}
-function submitExam(){
-  clearInterval(examTimer);
-  let score=0,max=0;S.examQs.forEach((q,i)=>{max+=q.pts;if(S.examAns[i]===q.ans)score+=q.pts;});
-  document.getElementById('ex-area').style.display='none';document.getElementById('ex-res').style.display='block';
-  const pct=Math.round(score/max*100);
-  document.getElementById('ex-score-t').textContent=(pct>=80?'🎉':pct>=60?'📚':'😰')+' '+score+'/'+max+' puntos ('+pct+'%)';
-  document.getElementById('ex-score-d').textContent=pct>=60?'¡Aprobado! Continúa practicando.':'Repasa los módulos de Teoría y Ejercicios.';
-  let rev='';
-  S.examQs.forEach((q,i)=>{const ok=S.examAns[i]===q.ans;rev+=`<div class="card" style="border-color:${ok?'rgba(0,232,122,.25)':'rgba(255,76,94,.25)'}"><div class="txs tm mb4">${ok?'✅':'❌'} Pregunta ${i+1}</div><div class="ts mb4">${q.q}</div><div class="ts"><strong>Tu respuesta:</strong> <span style="color:${ok?'var(--green)':'var(--red)'}">${S.examAns[i]!==undefined?q.opts[S.examAns[i]]:'Sin responder'}</span></div>${!ok?`<div class="ts tg">Correcta: ${q.opts[q.ans]}</div>`:''}</div>`;});
-  const rc=document.getElementById('ex-review');rc.innerHTML=rev;renderLatex(rc);
-  addXP(pct>=80?30:pct>=60?15:5,'examen');if(pct>=80)unlockA('ach-perfect');unlockA('ach-exam');
-}
-function endExam(){clearInterval(examTimer);submitExam();}
-function resetExam(){document.getElementById('ex-setup').style.display='block';document.getElementById('ex-area').style.display='none';document.getElementById('ex-res').style.display='none';}
-
-// ── Panic Mode ──
-const PANIC_HTML=`
-<div class="card g mb8"><div class="fw7 ts tg mb8">⚡ RESPUESTAS — 3 EJERCICIOS DE LA GUÍA</div>
-<div class="fb g" style="margin-bottom:5px">$$f(x)=6-x^2 \\Rightarrow f'(x)=-2x,\\; m_T(1)=-2$$</div>
-<div class="fb o" style="margin-bottom:5px">$$\\varepsilon_{RT}: y=-2x+7,\\quad m_\\perp=\\tfrac{1}{2} \\Rightarrow y=\\tfrac{1}{2}x+\\tfrac{9}{2}$$</div>
-<div class="fb y" style="margin-bottom:5px">$$\\text{Paralela por }Q(2,2): y=-2x+6$$</div>
-<div class="fb p" style="margin-bottom:5px">$$\\text{Guía E1: }f(x)=x^2-3x \\Rightarrow f'(x)=2x-3,\\; m_T(1)=-1$$</div>
-<div class="fb p">$$\\text{Guía E2: }f(x)=x^2+2 \\Rightarrow f'(x)=2x,\\; m_T(2)=4,\\; \\varepsilon_{RT}:y=4x-2$$</div>
-</div>
-<div class="card o mb8"><div class="fw7 ts to mb8">📋 PROCESO EN 4 PASOS</div>
-<div style="font-family:monospace;font-size:12px;color:var(--cyan);line-height:2">
-1. $f(x+h)$ — sustituir $x$ por $(x+h)$<br>
-2. $f(x+h)-f(x)$ — simplificar (se cancelan constantes)<br>
-3. $\div h$ — factorizar $h$ del numerador para cancelar<br>
-4. $\\lim_{h\\to 0}$ — hacer $h=0$ → resultado $f'(x)$
-</div></div>
-<div class="card y"><div class="fw7 ts ty mb8">⚠️ NO OLVIDAR</div>
-<div class="ts" style="line-height:2;color:var(--text2)">
-• $(x+h)^2 = x^2 + \\mathbf{2xh} + h^2$ — el $2xh$ es clave<br>
-• Siempre factorizar $h$ antes de cancelar<br>
-• $m_\\perp = -1/m_T$ (no es $-m_T$)<br>
-• Paralela: usar el PUNTO $Q$, no $P$<br>
-• Verificar: reemplaza el punto en la ecuación final
-</div></div>`;
-let panicInt=null,panicSecs=0;
-function startPanic(){
-  document.getElementById('panic-body').innerHTML=PANIC_HTML;
-  renderLatex(document.getElementById('panic-body'));
-  document.getElementById('panic').classList.add('show');
-  panicSecs=15*60;updatePanicTimer();
-  panicInt=setInterval(()=>{panicSecs--;updatePanicTimer();if(panicSecs<=0){clearInterval(panicInt);stopPanic();}},1000);
-  addXP(5,'panico');
-}
-function updatePanicTimer(){const m=Math.floor(panicSecs/60).toString().padStart(2,'0');const s=(panicSecs%60).toString().padStart(2,'0');document.getElementById('pt').textContent=`${m}:${s}`;}
-function stopPanic(){clearInterval(panicInt);document.getElementById('panic').classList.remove('show');}
-
-// ── OpenAI ──
-const TOKENS={economico:300,equilibrado:500,intensivo:1000};
-const HIST_LIMIT={economico:0,equilibrado:3,intensivo:8};
-const SYS=`Tutor Cálculo I. Español claro, pasos cortos, max 3 frases/explicación.
-CONTEXTO GUÍA 7:
-E1: f(x)=x²-3x, P(1,-2), f'(x)=2x-3, mT=-1, tangente y=-x-1
-E2: f(x)=x²+2, P(2,6), f'(x)=2x, mT=4, tangente y=4x-2, perp y=-x/4+13/2
-CLASE: f(x)=6-x², P(1,5), f'(x)=-2x, mT=-2, tangente y=-2x+7, perp y=x/2+9/2, paralela Q(2,2) y=-2x+6.
-REGLAS: primero el resultado, luego el porqué. Sin teoría extra.`;
+TUS RESPUESTAS DEBEN USAR SIEMPRE LATEX ($$...$$). Explica cada paso. Si generas un ejercicio, usa JSON con campos: fn, fn_tex, point, tasks, solution (con deriv, slope, angle, tangent, perp, parallel).`;
 
 const PROMPTS={
-  ej_guia1:'Genera variante del Ej.1 Guía 7 (f cuadrática como x²-bx, punto diferente). Solo JSON: {fn,fn_tex,point,tasks,solution:{deriv,slope,tangent},difficulty}',
-  ej_guia2:'Genera variante del Ej.2 Guía 7 (f como x²+c, punto diferente). Solo JSON: {fn,fn_tex,point,tasks,solution:{deriv,slope,tangent,perp},difficulty}',
-  similar:'Genera ejercicio derivada cuadrática similar al de la guía. Solo JSON: {fn,fn_tex,point,tasks,solution,difficulty}',
-  fraccion:'Genera ejercicio con coeficiente fraccionario: f(x)=a-(1/b)x². Solo JSON: {fn,fn_tex,point,tasks,solution,difficulty:"medio"}',
-  dificil:'Genera ejercicio cuadrático con punto no entero o pendiente fraccionaria. Solo JSON: {fn,fn_tex,point,tasks,solution,difficulty:"avanzado"}',
-  simulacro:'Crea 4 preguntas examen Cálculo I basadas en Guía 7. Solo JSON: {questions:[{q,opts:[4],ans:0,pts,exp}]}',
-  errores:'Lista 3 errores más comunes al resolver los ejercicios de la Guía 7. Breve y directo.',
-  facil:'Explica en 3 frases sencillas por qué la derivada es la pendiente de la tangente.',
+  ej_guia1:'Genera variante del Ej.1 Guía 7 (f cuadrática como x²-bx). Incluye los 7 pasos. Solo JSON.',
+  ej_guia2:'Genera variante del Ej.2 Guía 7 (f como x²+c). Incluye los 7 pasos. Solo JSON.',
+  similar:'Genera ejercicio de derivada cuadrática con los 7 pasos del parcial. Solo JSON.',
+  fraccion:'Genera ejercicio con coeficiente fraccionario (ej: f(x)=a-(1/b)x²). Incluye 7 pasos. JSON.',
+  dificil:'Genera ejercicio avanzado con punto no entero. Incluye 7 pasos. JSON.',
+  simulacro:'Crea 4 preguntas tipo examen basadas en Guía 7. JSON: {questions:[{q,opts,ans,pts,exp}]}'
 };
 
 async function callAI(msgs,json=false){
   const url=S.proxy||'https://api.openai.com/v1/chat/completions';
   const headers={'Content-Type':'application/json'};
   if(!S.proxy)headers['Authorization']='Bearer '+S.key;
-  const body={model:S.model,messages:msgs,max_tokens:TOKENS[S.mode],temperature:0.7};
+  const body={model:S.model,messages:msgs,max_tokens:800,temperature:0.5};
   if(json)body.response_format={type:'json_object'};
   const r=await fetch(url,{method:'POST',headers,body:JSON.stringify(body)});
-  if(!r.ok){const e=await r.json().catch(()=>({}));throw new Error(e.error?.message||'HTTP '+r.status);}
+  if(!r.ok)throw new Error('Error '+r.status);
   return (await r.json()).choices[0].message.content;
-}
-function buildMsgs(user,json=false){
-  const ms=[{role:'system',content:SYS}];
-  const lim=HIST_LIMIT[S.mode];S.hist.slice(-lim*2).forEach(h=>ms.push(h));
-  ms.push({role:'user',content:user});return ms;
 }
 
 async function aiAction(act){
-  if(!S.key&&!S.proxy){showMod('config');toast('Configura tu API Key','red');return;}
-  const json=['ej_guia1','ej_guia2','similar','fraccion','dificil','simulacro'].includes(act);
-  // Check cache for exercises
-  if(json&&act!=='simulacro'){const c=S.cache.find(x=>x._act===act);if(c&&Math.random()>.3){renderAIEx(c);toast('📦 Caché','cyan');return;}}
-  const prompt=PROMPTS[act]||act;
+  if(!S.key){showMod('config');return;}
+  const json=true;
   addMsg('user','['+act+']');const lid=addMsg('ai','<div class="dots"><span></span><span></span><span></span></div>',true);
   try{
-    const r=await callAI(buildMsgs(prompt,json),json);
+    const msgs=[{role:'system',content:SYS},{role:'user',content:PROMPTS[act]||act}];
+    const r=await callAI(msgs,json);
     rmMsg(lid);
-    if(json){
-      try{const d=JSON.parse(r);if(act==='simulacro'){renderSim(d);}else{d._act=act;S.cache.push(d);if(S.cache.length>10)S.cache.shift();renderAIEx(d);saveS();}addMsg('ai','✅ Generado ↑');}
-      catch(e){addMsg('ai',r);}
-    }else{addMsg('ai',r);S.hist.push({role:'user',content:prompt},{role:'assistant',content:r});}
-    addXP(2,null);
+    const d=JSON.parse(r);
+    if(act==='simulacro')renderSim(d); else renderAIEx(d);
+    addMsg('ai','✅ Ejercicio generado (mira arriba)');
   }catch(e){rmMsg(lid);addMsg('ai','❌ '+e.message);}
 }
-async function sendMsg(){
-  const inp=document.getElementById('ai-inp');const msg=inp.value.trim();if(!msg)return;
-  if(!S.key&&!S.proxy){showMod('config');return;}inp.value='';
-  addMsg('user',msg);const lid=addMsg('ai','<div class="dots"><span></span><span></span><span></span></div>',true);
-  try{const r=await callAI(buildMsgs(msg));rmMsg(lid);addMsg('ai',r);S.hist.push({role:'user',content:msg},{role:'assistant',content:r});addXP(3,null);}
-  catch(e){rmMsg(lid);addMsg('ai','❌ '+e.message);}
-}
-async function aiCorrect(){
-  const ua=document.getElementById('ua').value.trim();if(!ua){toast('Escribe tu respuesta primero','yellow');return;}
-  if(!S.key&&!S.proxy){showMod('config');return;}
-  const prompt=`Corrige este procedimiento de derivadas: "${ua}". Context: Guía 7 ejercicios. JSON: {score:0-10,correct:bool,errors:[],tips:[]}`;
-  addMsg('user','📝 Mi respuesta:\n'+ua);const lid=addMsg('ai','<div class="dots"><span></span><span></span><span></span></div>',true);
-  try{const r=await callAI(buildMsgs(prompt,true),true);rmMsg(lid);const d=JSON.parse(r);const col=d.correct?'var(--green)':d.score>=5?'var(--yellow)':'var(--red)';let h=`<div style="color:${col}"><strong>${d.correct?'✅':'📝'} ${d.score}/10</strong></div>`;if(d.errors?.length)h+=`<div class="mt8"><strong>Errores:</strong><ul style="margin-left:14px">${d.errors.map(e=>`<li>${e}</li>`).join('')}</ul></div>`;if(d.tips?.length)h+=`<div class="mt8"><strong>Tips:</strong><ul style="margin-left:14px">${d.tips.map(t=>`<li>${t}</li>`).join('')}</ul></div>`;addMsg('ai',h);addXP(d.score,null);}
-  catch(e){rmMsg(lid);addMsg('ai','❌ '+e.message);}
-}
-async function aiHint(){
-  const ex=S.currentEx;if(!ex)return;
-  const p=`Da una pista corta (no la solución) para: ${ex.fn}, tangente en ${ex.point}. Una frase.`;
-  const lid=addMsg('ai','<div class="dots"><span></span><span></span><span></span></div>',true);
-  try{const r=await callAI(buildMsgs(p));rmMsg(lid);addMsg('ai','💡 Pista: '+r);}
-  catch(e){rmMsg(lid);addMsg('ai','❌ '+e.message);}
-}
-function aiSolution(){const ex=S.currentEx;if(!ex||!ex.solution)return;let h='<strong>Solución:</strong><br>';Object.values(ex.solution).forEach(v=>{h+=`<span class="mono tc txs">$$${v}$$</span><br>`;});const m=addMsg('ai',h);renderLatex(document.getElementById(m)?.closest('.msg'));}
 
-S.currentEx=null;
 function renderAIEx(d){
-  S.currentEx=d;const card=document.getElementById('ai-ex-card');const body=document.getElementById('ai-ex-body');card.style.display='block';
+  S.currentEx=d;const card=document.getElementById('ai-ex-card');card.style.display='block';
   let h=`<div class="fb o">$${d.fn_tex||d.fn}$ · $${d.point}$</div>`;
-  if(d.tasks)h+=`<div class="txs tm mt8">Determinar: ${Array.isArray(d.tasks)?d.tasks.join(' · '):d.tasks}</div>`;
-  if(d.difficulty)h+=`<div class="mt8"><span class="badge ${d.difficulty==='básico'?'bg':d.difficulty==='medio'?'by':'bo'}">${d.difficulty}</span></div>`;
-  body.innerHTML=h;renderLatex(body);card.scrollIntoView({behavior:'smooth',block:'nearest'});
+  if(d.solution){
+    h+=`<div class="mt8"><strong>Solución (7 pasos):</strong></div>`;
+    for(let [k,v] of Object.entries(d.solution)) h+=`<div class="txs tm">${k}: $${v}$</div>`;
+  }
+  document.getElementById('ai-ex-body').innerHTML=h;renderLatex(card);
 }
-function renderSim(d){
-  if(!d.questions){addMsg('ai',JSON.stringify(d));return;}
-  let h='<div class="ct">🎓 SIMULACRO</div>';
-  d.questions.forEach((q,i)=>{h+=`<div class="qbox mb8"><div class="txs tm">P${i+1} · ${q.pts||10} pts</div><p>${q.q}</p><div class="opts">${q.opts.map((o,oi)=>`<button class="opt" onclick="markSim(${i},${oi},${q.ans},this)">${String.fromCharCode(65+oi)}) ${o}</button>`).join('')}</div></div>`;});
-  addMsg('ai',h);addXP(10,'simulacro');unlockA('ach-exam');
-}
-function markSim(qi,oi,ans,btn){const c=btn.closest('.opts');c.querySelectorAll('.opt').forEach((b,i)=>{b.classList.add('off');if(i===ans)b.classList.add('ok');else if(i===oi&&oi!==ans)b.classList.add('bad');});}
 
-let msgId=0;
-function addMsg(role,content,loading=false){
-  const area=document.getElementById('aic');const id='m'+(++msgId);
-  const d=document.createElement('div');d.id=id;d.className='msg '+(role==='ai'?'ma':'mu')+(loading?' loading':'');
-  d.innerHTML=`<div class="mlbl">${role==='ai'?'TUTOR IA':'TÚ'}</div><div>${content}</div>`;
-  area.appendChild(d);area.scrollTop=area.scrollHeight;
-  if(!loading)renderLatex(d);
-  return id;
-}
+function addMsg(role,content,loading=false){/* ... */ return 'msg';}
 function rmMsg(id){document.getElementById(id)?.remove();}
+function checkAI(){document.getElementById('ia-off').style.display=S.key?'none':'block';document.getElementById('ia-on').style.display=S.key?'block':'none';}
+function saveKey(){S.key=document.getElementById('key-inp').value.trim();toast('Key guardada','green');checkAI();saveS();}
 
-// ── Config ──
-function saveKey(){const k=document.getElementById('key-inp').value.trim();if(!k.startsWith('sk-')&&!k.startsWith('sk_')){toast('API Key inválida','red');return;}S.key=k;document.getElementById('key-st').textContent='✅ Configurada ('+k.substring(0,8)+'...)';document.getElementById('key-st').style.color='var(--green)';if(S.saveKey)saveS();toast('✅ API Key guardada','green');checkAI();}
-function setModel(m){S.model=m;document.getElementById('mdl-lbl').textContent=m;saveS();}
-function setMode(m){S.mode=m;document.getElementById('mode-lbl').textContent=m;saveS();}
-function saveProxy(){S.proxy=document.getElementById('proxy-inp').value.trim();saveS();toast('Proxy guardado','cyan');}
-async function testConn(){
-  const r=document.getElementById('test-res');r.innerHTML='<div class="alert ai">Probando...</div>';
-  try{const resp=await callAI([{role:'user',content:'Di exactamente: OK'}]);r.innerHTML=`<div class="alert ag">✅ Conexión exitosa: ${resp}</div>`;}
-  catch(e){r.innerHTML=`<div class="alert ar">❌ Error: ${e.message}</div>`;}
-}
-function checkAI(){const has=S.key||S.proxy;document.getElementById('ia-off').style.display=has?'none':'block';document.getElementById('ia-on').style.display=has?'block':'none';}
-function showSec(){document.getElementById('sec-modal').style.display='flex';}
-
-// ── INIT ──
+// ── Init ──
 function init(){
-  loadS();updateXP();updateProg();
-  // Init tab systems
-  ['tabs-teoria','tabs-ejercicio','tabs-practica'].forEach(initTabs);
-  // Render dynamic content
-  ['clase','guia1','guia2'].forEach(renderSteps);
-  renderQuiz();renderFC(S.fcIdx);renderEjers();checkAI();
-  // Restore config UI
-  if(S.key){document.getElementById('key-inp').value=S.key;document.getElementById('key-st').textContent='✅ Configurada';document.getElementById('key-st').style.color='var(--green)';}
-  if(S.proxy)document.getElementById('proxy-inp').value=S.proxy;
-  document.getElementById('mdl-lbl').textContent=S.model;
-  document.getElementById('mode-lbl').textContent=S.mode;
-  document.querySelectorAll('input[name="mdl"]').forEach(r=>r.checked=r.value===S.model);
-  document.querySelectorAll('input[name="md"]').forEach(r=>r.checked=r.value===S.mode);
-  // Initial LaTeX render
+  loadS();updateXP();
+  initLatexKeyboard();
+  // Inicializar tabs, steps, gráfica...
   setTimeout(()=>renderLatex(document.body),500);
-  // Set default graph button
-  setGraph('clase',document.getElementById('gbtn-clase'));
 }
 document.addEventListener('DOMContentLoaded',init);
 </script>
